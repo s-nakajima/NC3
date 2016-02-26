@@ -1,11 +1,27 @@
 NetCommons環境構築ツール
 =======
 
-このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、中島が開発環境で使用してるものから作成するツールです。 
+このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、中島が開発環境で使用してるものから開発環境を構築するツールです。 
 
 ## NetCommonsとは
 国立情報学研究所が次世代情報共有基盤システムとして開発しています。サポート情報やライセンスなどの最新の情報は公式サイトを御覧ください。
 こちらのリポジトリは最新版として開発中のv3となります。安定版ではありませんのでご注意ください。現在の安定版については[こちらのレポジトリ](https://github.com/netcommons)をご覧ください。
+
+
+## 動作実績
+
+以下の組み合わせで動作することを確認しています。
+
+| OS           | matrix |
+| ------------ | ------ |
+| Windows 10  | virtualbox 5.0.12, vagrant 1.8.0 |
+
+### ゲストOSの構成
+
+| ライブラリ | バージョン | 備考
+| ------------ | ------ | ------
+| php | 5.5.23 | PHP 5.5.23-1+deb.sury.org~precise+2 (cli) (built: Mar 24 2015 11:00:01) 
+| mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
 
 
 ## インストール
@@ -28,29 +44,57 @@ gitコマンドにパスを通す必要がある。
 
 ### 依存ライブラリのインストール
 #### Windoswの場合
+##### synced_folder 無効化
+virtualbox のある時点から Windows では synced_folder 上で symlink が貼れなくなっています。  
+synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。下記の通り Vagrantfile に 『disabled: true』 を指定して下さい。
 
 ```
-
+node.vm.synced_folder '.', '/var/www/app',
+:create => true, :owner=> 'www-data', :group => 'www-data'
+```
+↓
+```
+node.vm.synced_folder '.', '/var/www/app', disabled: true,
+:create => true, :owner=> 'www-data', :group => 'www-data'
 ```
 
-#### 共通
+##### install.batの実行
+install.batには、下記vagrant pluginも含めインストールします。
+
+#### それ以外（共通）
 ##### vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
 ```
-##### vagrant plugin (vagrant 1.4.x)
+
+##### vagrant を起動
+配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
+
 ```
-vagrant plugin install vagrant-berkshelf --plugin-version 1.3.7
+vagrant up default
 ```
 
-##### vagrant plugin (vagrant 1.5.x 1.6.x)
+## その他
+### 終了
+vagrantコマンドで仮想マシンを終了、又は破棄できます。
+
+* 一旦止めるだけの場合
+
 ```
-vagrant plugin install vagrant-berkshelf --plugin-version 2.0.1
+vagrant halt
 ```
 
-##### vagrant plugin (vagrant 1.7.2)
+* データを破棄する場合
+次回、`vagrant up` の際にはまっさらなマシンから新規インストールが行われます。
+
 ```
-vagrant plugin install vagrant-berkshelf --plugin-version 4.0.4
+vagrant destroy
 ```
 
+* provision する場合
+ default オプションをつける必要があります。
+
+```
+vagrant provision default
+```
