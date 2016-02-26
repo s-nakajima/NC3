@@ -46,9 +46,11 @@ Vagrant.configure('2') do |config|
     #  chef.json = json
     #end
     config.vm.provision "shell", inline: <<-SHELL
-      if [ -f /var/www/app/setup ] ; then
-        sudo -s mv -f /var/www/app/setup /var/www/setup
+      if [ -f /var/www/setup ] ; then
+        sudo -s rm -f /var/www/setup
       fi
+      cd /var/www/
+      wget https://raw.githubusercontent.com/s-nakajima/NC3/master/setup
       sudo -s bash /var/www/setup
     SHELL
     node.vm.provider :virtualbox do |vb|
