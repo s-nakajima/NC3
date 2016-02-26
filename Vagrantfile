@@ -50,7 +50,7 @@ Vagrant.configure('2') do |config|
         sudo -s rm -f /var/www/setup
       fi
       cd /var/www/
-      wget https://raw.githubusercontent.com/s-nakajima/NC3/master/setup
+      sudo -s wget https://raw.githubusercontent.com/s-nakajima/NC3/master/setup
       sudo -s bash /var/www/setup
     SHELL
     node.vm.provider :virtualbox do |vb|
