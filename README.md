@@ -42,8 +42,10 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
   * [https://git-for-windows.github.io/](https://git-for-windows.github.io/)<br>
 gitコマンドにパスを通す必要がある。
 
+
 ### 依存ライブラリのインストール
 #### Windoswの場合
+
 ##### synced_folder 無効化
 virtualbox のある時点から Windows では synced_folder 上で symlink が貼れなくなっています。  
 synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。下記の通り Vagrantfile に 『disabled: true』 を指定して下さい。
