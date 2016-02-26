@@ -45,11 +45,17 @@ Vagrant.configure('2') do |config|
     #  chef.run_list = json.delete('run_list')
     #  chef.json = json
     #end
+    config.vm.provision "shell", inline: <<-SHELL
+      if [ -f /var/www/app/setup ] ; then
+        sudo -s mv -f /var/www/app/setup /var/www/setup
+      fi
+      sudo -s bash /var/www/setup
+    SHELL
     node.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.memory = 4096
     end
-    node.vm.synced_folder '.', '/var/www/app', disabled: true,
+    node.vm.synced_folder '.', '/var/www/app',
     :create => true, :owner=> 'www-data', :group => 'www-data'
   end
 
