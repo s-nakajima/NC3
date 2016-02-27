@@ -49,7 +49,7 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
 #### Windwosの場合
 * Git for windows
   * [https://git-for-windows.github.io/](https://git-for-windows.github.io/)<br>
-gitコマンドにパスを通す必要がある。
+gitコマンドにパスを通す必要があります。
 
 --
 
