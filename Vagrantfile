@@ -52,7 +52,7 @@ Vagrant.configure('2') do |config|
       vb.gui = false
       vb.memory = 4096
     end
-    node.vm.synced_folder '.', '/var/www/app', disabled: true,
+    node.vm.synced_folder '.', '/var/www/app',
     :create => true, :owner=> 'www-data', :group => 'www-data'
   end
 
