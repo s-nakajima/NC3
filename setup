@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd /var/www/MyShell/
-sudo -s git pull https://github.com/s-nakajima/MyShell.git
-
-cd /var/www/MyShell/install
-sudo -s bash install.sh
