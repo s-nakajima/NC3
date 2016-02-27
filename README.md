@@ -25,7 +25,8 @@ NetCommons環境構築ツール
 
 
 ## インストール
-### 共通
+
+### 1. アプリケーションのインストール
 下記アプリケーションをインストールして下さい。
 
 * virtualbox
@@ -43,10 +44,10 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
 gitコマンドにパスを通す必要がある。
 
 
-### 依存ライブラリのインストール
-#### Windoswの場合
+### 2. 依存ライブラリのインストール
+#### 2-1(1). Windoswの場合
 
-##### synced_folder 無効化
+##### 2-1(1)-1. synced_folder 無効化
 virtualbox のある時点から Windows では synced_folder 上で symlink が貼れなくなっています。  
 synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。下記の通り Vagrantfile に 『disabled: true』 を指定して下さい。
 
@@ -60,24 +61,38 @@ node.vm.synced_folder '.', '/var/www/app', disabled: true,
 :create => true, :owner=> 'www-data', :group => 'www-data'
 ```
 
-##### install.batの実行
-install.batには、下記vagrant pluginも含めインストールします。
+##### 2-1(1)-2. vagrant_install.batの実行
+vagrant_install.batには、下記vagrant pluginも含めインストールします。
 
-#### それ以外（共通）
-##### vagrant plugin
+
+#### 2-1(2). それ以外
+##### 2-1(2)-1. vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
 ```
 
-##### vagrant を起動
+##### 2-1(2)-2. vagrant を起動
 配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
 
 ```
 vagrant up default
 ```
 
+### 3. setupシェルの実行
+vagrant が正常に起動された後に、vagrant により作成された仮想環境（ゲスト環境）に SSH で接続し、下記コマンドを実行してください。  
+SSH 接続には、Putty などの SSH クライアントソフトを使用し、127.0.0.1 のポート 2222 に接続してください。  
+SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
+
+下記のコマンドを実行し、s-nakajima/MyShellとNetCommonos3の最新化する
+
+```
+sudo -s /var/www/setup
+```
+
+
 ## その他
+
 ### 終了
 vagrantコマンドで仮想マシンを終了、又は破棄できます。
 
