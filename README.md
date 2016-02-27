@@ -49,6 +49,11 @@ gitコマンドにパスを通す必要がある。
 ##### 2-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記vagrant pluginも含めインストールします。
 
+##### 2-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
+```
+vagrant plugin install vagrant-hostmanager --plugin-version 1.5.0
+vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
+```
 
 #### 2-1(2). それ以外
 ##### 2-1(2)-1. synced_folder 有効化
