@@ -46,33 +46,34 @@ gitコマンドにパスを通す必要がある。
 
 ### 2. 依存ライブラリのインストール
 #### 2-1(1). Windoswの場合
-
-##### 2-1(1)-1. synced_folder 無効化
-virtualbox のある時点から Windows では synced_folder 上で symlink が貼れなくなっています。  
-synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。下記の通り Vagrantfile に 『disabled: true』 を指定して下さい。
-
-```
-node.vm.synced_folder '.', '/var/www/app',
-:create => true, :owner=> 'www-data', :group => 'www-data'
-```
-↓
-```
-node.vm.synced_folder '.', '/var/www/app', disabled: true,
-:create => true, :owner=> 'www-data', :group => 'www-data'
-```
-
-##### 2-1(1)-2. vagrant_install.batの実行
+##### 2-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記vagrant pluginも含めインストールします。
 
 
 #### 2-1(2). それ以外
-##### 2-1(2)-1. vagrant plugin
+##### 2-1(2)-1. synced_folder 有効化
+virtualbox のある時点から Windows では synced_folder 上で symlink でリンクが貼れません。
+synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。そのため、当Vagrantfileは、synced_folderを無効にしています。
+
+下記の通り Vagrantfile から 『disabled: true』 を削除して下さい。
+
+```
+node.vm.synced_folder '.', '/var/www/app', disabled: true,
+:create => true, :owner=> 'www-data', :group => 'www-data'
+```
+↓
+```
+node.vm.synced_folder '.', '/var/www/app',
+:create => true, :owner=> 'www-data', :group => 'www-data'
+```
+
+##### 2-1(2)-2. vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
 ```
 
-##### 2-1(2)-2. vagrant を起動
+##### 2-1(2)-3. vagrant を起動
 配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
 
 ```
