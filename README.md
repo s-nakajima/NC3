@@ -20,7 +20,7 @@ NetCommons3開発環境（非公式の方法で環境構築）
 | ------------ | ------ |
 | Windows 10  | virtualbox 5.0.12, vagrant 1.8.0 |
 
-### ゲストOSの構成
+### Box（ゲストOS）の構成
 #### NetCommons3-ubuntu（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/)）
 
 | ライブラリ | バージョン | 備考
