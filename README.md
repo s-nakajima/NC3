@@ -64,6 +64,13 @@ vagrant plugin install vagrant-hostmanager --plugin-version 1.5.0
 vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
 ```
 
+##### 2-1(1)-3. vagrant を起動 (vagrant_install.batに含まれているため、実行する必要なし)
+配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
+
+```
+vagrant up default
+```
+
 ---
 
 #### 2-1(2). それ以外
