@@ -114,6 +114,6 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.provision :hostmanager
-  config.berkshelf.enabled = true
+  #config.berkshelf.enabled = true
   config.omnibus.chef_version = :latest
 end
