@@ -51,8 +51,8 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
   * [https://git-for-windows.github.io/](https://git-for-windows.github.io/)<br>
 gitコマンドにパスを通す必要があります。設定方法は、下図を参考にしてください。クリックすると拡大されます。<br>
 <a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.2.PNG">
-<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.2.PNG" width="320px">
-</a><br>
+<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.2.PNG" width="400px">
+</a>
 <a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.PNG">
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.PNG" width="320px">
 </a><br>
