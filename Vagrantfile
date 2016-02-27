@@ -45,19 +45,14 @@ Vagrant.configure('2') do |config|
     #  chef.run_list = json.delete('run_list')
     #  chef.json = json
     #end
-    config.vm.provision "shell", inline: <<-SHELL
-      if [ -f /var/www/setup ] ; then
-        sudo -s rm -f /var/www/setup
-      fi
-      cd /var/www/
-      sudo -s wget https://raw.githubusercontent.com/s-nakajima/NC3/master/setup
-      sudo -s bash /var/www/setup
-    SHELL
+    #config.vm.provision "shell", inline: <<-SHELL
+    #  sudo -s bash /var/www/setup
+    #SHELL
     node.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.memory = 4096
     end
-    node.vm.synced_folder '.', '/var/www/app',
+    node.vm.synced_folder '.', '/var/www/app', disabled: true,
     :create => true, :owner=> 'www-data', :group => 'www-data'
   end
 
