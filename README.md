@@ -185,3 +185,10 @@ vagrant destroy
 ```
 vagrant provision default
 ```
+
+<br>
+
+## 参考資料
+* [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)
+* [VirtualBox の仮想ディスクのサイズを変更する](http://qiita.com/niwashun/items/f71b0b805a6f97b514ec)
+* [CentOS7にPHP5.6,MySQL5.7,Nginx1.8の環境構築](http://qiita.com/fujiiiiii/items/a1c880f058b71595d15c#php%E8%A8%AD%E5%AE%9A)
