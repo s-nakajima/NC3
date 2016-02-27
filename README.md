@@ -51,7 +51,7 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
   * [https://git-for-windows.github.io/](https://git-for-windows.github.io/)<br>
 gitコマンドにパスを通す必要がある。
 
-<br>
+--
 
 ### 2. 依存ライブラリのインストール
 #### 2-1(1). Windoswの場合
