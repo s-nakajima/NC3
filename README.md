@@ -9,6 +9,8 @@ NetCommons環境構築ツール
 国立情報学研究所が次世代情報共有基盤システムとして開発しています。サポート情報やライセンスなどの最新の情報は公式サイトを御覧ください。
 こちらのリポジトリは最新版として開発中のv3となります。安定版ではありませんのでご注意ください。現在の安定版については[こちらのレポジトリ](https://github.com/netcommons)をご覧ください。
 
+<br>
+
 
 ## 動作実績
 
@@ -26,6 +28,8 @@ NetCommons環境構築ツール
 | OS | Ubuntu 12.04 | Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64) 
 | php | 5.5.23 | PHP 5.5.23-1+deb.sury.org~precise+2 (cli) (built: Mar 24 2015 11:00:01) 
 | mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
+
+<br>
 
 
 ## インストール
@@ -47,6 +51,7 @@ Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ
   * [https://git-for-windows.github.io/](https://git-for-windows.github.io/)<br>
 gitコマンドにパスを通す必要がある。
 
+--
 
 ### 2. 依存ライブラリのインストール
 #### 2-1(1). Windoswの場合
@@ -58,6 +63,8 @@ vagrant_install.batには、下記vagrant pluginも含めインストールし�
 vagrant plugin install vagrant-hostmanager --plugin-version 1.5.0
 vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
 ```
+
+---
 
 #### 2-1(2). それ以外
 ##### 2-1(2)-1. synced_folder 有効化
@@ -89,6 +96,8 @@ vagrant plugin install vagrant-omnibus
 vagrant up default
 ```
 
+--
+
 ### 3. setupシェルの実行
 vagrant が正常に起動された後に、vagrant により作成された仮想環境（ゲスト環境）に SSH で接続し、下記コマンドを実行してください。  
 SSH 接続には、Putty などの SSH クライアントソフトを使用し、127.0.0.1 のポート 2222 に接続してください。  
@@ -100,6 +109,8 @@ SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
 sudo -s /var/www/setup
 ```
 
+--
+
 ### 4. 開発
 Windowsの場合、Windows のホスト側にてファイルを編集する場合は、下記 samba をマウントし作業してください。
 
@@ -109,12 +120,16 @@ Windowsの場合、Windows のホスト側にてファイルを編集する場�
 
 その他の OS は vagrant up したディレクトリ直下のファイルを直接編集するだけで host <=> guest 間でファイルが同期できます。
 
+--
+
 ### 5. 終了
 vagrantコマンドで仮想マシンを終了します。
 
 ```
 vagrant halt
 ```
+
+<br>
 
 
 ## その他
