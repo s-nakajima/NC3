@@ -43,8 +43,8 @@ NetCommons3開発環境（非公式の方法で環境構築）
   * [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)<br>
 Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ（Program Files 等）にはインストールしないようにしてください。vagrant 起動時にエラーが発生します。
 
-* chef-dk
-  * [https://downloads.getchef.com/chef-dk](https://downloads.getchef.com/chef-dk)
+* ~~chef-dk~~
+  * ~~[https://downloads.getchef.com/chef-dk](https://downloads.getchef.com/chef-dk)~~
 
 #### Windwosの場合
 * Git for windows
