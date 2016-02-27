@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'NetCommons3'
-  config.vm.box_url = 'http://download.nakazii-co.jp/netcommons3.box'
+  config.vm.box = 'NetCommons3-ubuntu'
+  config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
