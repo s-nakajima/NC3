@@ -1,7 +1,7 @@
 NetCommons環境構築ツール
 =======
 
-このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、中島が開発環境で使用してるものから開発環境を構築するツールです。 
+このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、当管理者が開発環境で使用してるものから開発環境を構築するツールです。 
 
 ## NetCommonsとは
 国立情報学研究所が次世代情報共有基盤システムとして開発しています。サポート情報やライセンスなどの最新の情報は公式サイトを御覧ください。
@@ -17,9 +17,11 @@ NetCommons環境構築ツール
 | Windows 10  | virtualbox 5.0.12, vagrant 1.8.0 |
 
 ### ゲストOSの構成
+#### NetCommons3-ubuntu（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box)）
 
 | ライブラリ | バージョン | 備考
 | ------------ | ------ | ------
+| OS | Ubuntu 12.04 | Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64) 
 | php | 5.5.23 | PHP 5.5.23-1+deb.sury.org~precise+2 (cli) (built: Mar 24 2015 11:00:01) 
 | mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
 
