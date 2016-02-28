@@ -1,9 +1,9 @@
-NetCommons3開発環境（非公式の方法で環境構築）
+NetCommons3開発環境
 =======
 
-このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、当管理者が開発で使用してるVagrant環境を基に新たな開発環境を構築するツールです。 
+このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、当管理者が開発で使用してるVagrant環境を基に新たな開発環境を構築するツールです。
 
-正規の開発環境構築は[こちら](https://github.com/NetCommons3/NetCommons3/blob/master/README.md)を参照してください。
+これは、非公式のやり方です。正規の開発環境構築は[こちら](https://github.com/NetCommons3/NetCommons3/blob/master/README.md)を参照してください。
 
 ## NetCommonsとは
 国立情報学研究所が次世代情報共有基盤システムとして開発しています。サポート情報やライセンスなどの最新の情報は公式サイトを御覧ください。
@@ -155,11 +155,22 @@ Windowsの場合、Windows のホスト側にてファイルを編集する場�
 
 --
 
-### 6 終了
+### 6. 終了
 vagrantコマンドで仮想マシンを終了します。
+Windowsの場合は、vagrant-halt.batで終了することができます。
 
 ```
 vagrant halt
+```
+
+--
+
+### 7. 再開
+vagrantコマンドで仮想マシンを再開します。
+Windowsの場合は、vagrant-up.batで再開することができます。
+
+```
+vagrant up default
 ```
 
 <br>
