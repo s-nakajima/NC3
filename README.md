@@ -66,8 +66,8 @@ gitコマンドにパスを通す必要があります。設定方法は、下�
 git clone https://github.com/s-nakajima/NC3.git
 ```
 
-#### 2-2. ゲストOSのメモリを4GBに設定しています。
-必要の応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
+#### 2-2. ゲストOSのメモリの変更（必要に応じて行う）。
+デフォルト4GBに設定しています。必要に応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
 <b>【Vagrantfileの変更箇所】</b><br>
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
 
