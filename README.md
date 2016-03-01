@@ -38,14 +38,13 @@ NetCommons3開発環境
 
 ### 0. 事前準備
 
-##### 1. 当プロジェクトをgit cloneして下さい。
+#### 0-1. 当プロジェクトをgit cloneして下さい。
 ```
 git clone https://github.com/s-nakajima/NC3.git
 ```
 
-##### 2. ゲストOSのメモリを4GBに設定しています。
+#### 0-2. ゲストOSのメモリを4GBに設定しています。
 必要の応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
-<br>
 <b>【Vagrantfileの変更箇所】</b><br>
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
 
