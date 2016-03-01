@@ -21,10 +21,6 @@ NetCommons3開発環境
 | Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |
 | Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |
 
-※ゲストOSのメモリを4GBに設定しています。<br>
-ゲストOSのメモリを変更する場合は、Vagrantfileを修正して、vagrant provisionを実行して下さい。<br>
-
-<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
 
 ### Box（ゲストOS）の構成
 #### 1. NetCommons3-ubuntu（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/)）
@@ -39,6 +35,17 @@ NetCommons3開発環境
 
 
 ## インストール
+
+### 0. 事前準備
+
+#### 1. 当プロジェクトをgit cloneして下さい。
+
+#### 2. ゲストOSのメモリを4GBに設定しています。
+必要の応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して、vagrant provisionを実行して下さい。<br>
+【Vagrantfileの変更箇所】
+<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
+
+
 
 ### 1. アプリケーションのインストール
 下記アプリケーションをインストールして下さい。
