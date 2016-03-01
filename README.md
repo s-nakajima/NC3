@@ -230,7 +230,9 @@ vagrant provision default
 (3) "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk<br>
 <br>
 (4) VirtualBoxを起動し、ストレージを変更する<br>
-<br>
+<a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG">
+<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG" width="400px">
+</a><br>
 <br>
 (参考)
  * [VirtualBoxの仮想ディスクのサイズを変更する](http://qiita.com/niwashun/items/f71b0b805a6f97b514ec)
