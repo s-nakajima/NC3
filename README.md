@@ -76,7 +76,7 @@ https://github.com/join?source=header-home
 
 --
 
-### 3. 依存ライブラリのインストール
+### 3. インストール
 #### 3-1(1). Windoswの場合
 ##### 3-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記vagrant pluginも含めインストールします。
@@ -96,7 +96,7 @@ vagrant up default
 
 ---
 
-#### 3-1(2). それ以外
+#### 3-1(2). それ以外（Mac、Ubuntuなど）
 ##### 3-1(2)-1. synced_folder 有効化
 virtualbox のある時点から Windows では synced_folder 上で symlink でリンクが貼れません。
 synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。そのため、当Vagrantfileは、synced_folderを無効にしています。
