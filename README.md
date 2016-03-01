@@ -221,7 +221,15 @@ vagrant provision default
 
 ## 参考
 * [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)
+
+(VirtualBoxの仮想ディスクの圧縮)
 * [VirtualBoxの仮想ディスクのサイズを変更する](http://qiita.com/niwashun/items/f71b0b805a6f97b514ec)
 * [VirtualBoxの仮想ディスクの圧縮](http://vboxmania.net/content/%E4%BB%AE%E6%83%B3%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E3%81%AE%E5%9C%A7%E7%B8%AE)
+上記2つを踏まえて、下記の手順で行う
+ * "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi
+ * "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact
+ * "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk
+ * VirtualBoxを起動し、ストレージを変更する
+
 * [VagrantのBoxリスト](https://atlas.hashicorp.com/boxes/search)
 * [CentOS7にPHP5.6,MySQL5.7,Nginx1.8の環境構築](http://qiita.com/fujiiiiii/items/a1c880f058b71595d15c#php%E8%A8%AD%E5%AE%9A)
