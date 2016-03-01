@@ -71,6 +71,9 @@ git clone https://github.com/s-nakajima/NC3.git
 <b>【Vagrantfileの変更箇所】</b><br>
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
 
+#### 2-3. github.comのアカウントを作成してください。
+https://github.com/join?source=header-home
+
 --
 
 ### 3. 依存ライブラリのインストール
