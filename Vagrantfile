@@ -91,28 +91,28 @@ Vagrant.configure('2') do |config|
   end
 
   # Setup chef server
-  config.vm.define 'chef' do |node|
-    node.vm.network :private_network, ip: '10.0.0.12'
-    node.vm.hostname = 'chef.local'
-    #node.vm.provision :chef_solo do |chef|
-    #  chef.cookbooks_path = ['site-cookbooks', 'cookbooks']
-    #  chef.custom_config_path = CHEF_ROOT + '/Vagrantfile.chef'
-    #  chef.json = {
-    #    'chef-server' => {
-    #      'version' => :latest
-    #    }
-    #  }
-    #  chef.run_list = [
-    #    'recipe[chef-server::default]'
-    #  ]
-    #end
-    node.vm.provider :virtualbox do |vb|
-      vb.gui = false
-      vb.cpus = 1
-      vb.memory = 1024
-    end
-    node.vm.synced_folder '.', '/vagrant'
-  end
+  #config.vm.define 'chef' do |node|
+  #  node.vm.network :private_network, ip: '10.0.0.12'
+  #  node.vm.hostname = 'chef.local'
+  #  #node.vm.provision :chef_solo do |chef|
+  #  #  chef.cookbooks_path = ['site-cookbooks', 'cookbooks']
+  #  #  chef.custom_config_path = CHEF_ROOT + '/Vagrantfile.chef'
+  #  #  chef.json = {
+  #  #    'chef-server' => {
+  #  #      'version' => :latest
+  #  #    }
+  #  #  }
+  #  #  chef.run_list = [
+  #  #    'recipe[chef-server::default]'
+  #  #  ]
+  #  #end
+  #  node.vm.provider :virtualbox do |vb|
+  #    vb.gui = false
+  #    vb.cpus = 1
+  #    vb.memory = 1024
+  #  end
+  #  node.vm.synced_folder '.', '/vagrant'
+  #end
 
   config.vm.provision :hostmanager
   #config.berkshelf.enabled = true
