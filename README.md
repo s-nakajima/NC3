@@ -36,20 +36,6 @@ NetCommons3開発環境
 
 ## インストール
 
-### 0. 事前準備
-
-#### 0-1. 当プロジェクトをgit cloneして下さい。
-```
-git clone https://github.com/s-nakajima/NC3.git
-```
-
-#### 0-2. ゲストOSのメモリを4GBに設定しています。
-必要の応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
-<b>【Vagrantfileの変更箇所】</b><br>
-<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
-
---
-
 ### 1. アプリケーションのインストール
 下記アプリケーションをインストールして下さい。
 
@@ -73,20 +59,32 @@ gitコマンドにパスを通す必要があります。設定方法は、下�
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/Windows.PNG" width="320px">
 </a><br>
 
+### 2. 事前準備
+
+#### 2-1. 当プロジェクトをgit cloneして下さい。
+```
+git clone https://github.com/s-nakajima/NC3.git
+```
+
+#### 2-2. ゲストOSのメモリを4GBに設定しています。
+必要の応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
+<b>【Vagrantfileの変更箇所】</b><br>
+<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
+
 --
 
-### 2. 依存ライブラリのインストール
-#### 2-1(1). Windoswの場合
-##### 2-1(1)-1. vagrant_install.batの実行
+### 3. 依存ライブラリのインストール
+#### 3-1(1). Windoswの場合
+##### 3-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記vagrant pluginも含めインストールします。
 
-##### 2-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
+##### 3-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
 ```
 vagrant plugin install vagrant-hostmanager --plugin-version 1.5.0
 vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
 ```
 
-##### 2-1(1)-3. vagrant を起動 (vagrant_install.batに含まれているため、実行する必要なし)
+##### 3-1(1)-3. vagrant を起動 (vagrant_install.batに含まれているため、実行する必要なし)
 配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
 
 ```
@@ -95,8 +93,8 @@ vagrant up default
 
 ---
 
-#### 2-1(2). それ以外
-##### 2-1(2)-1. synced_folder 有効化
+#### 3-1(2). それ以外
+##### 3-1(2)-1. synced_folder 有効化
 virtualbox のある時点から Windows では synced_folder 上で symlink でリンクが貼れません。
 synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。そのため、当Vagrantfileは、synced_folderを無効にしています。
 
@@ -112,13 +110,13 @@ node.vm.synced_folder '.', '/var/www/app',
 :create => true, :owner=> 'www-data', :group => 'www-data'
 ```
 
-##### 2-1(2)-2. vagrant plugin
+##### 3-1(2)-2. vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
 ```
 
-##### 2-1(2)-3. vagrant を起動
+##### 3-1(2)-3. vagrant を起動
 配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
 
 ```
@@ -127,7 +125,7 @@ vagrant up default
 
 --
 
-### 3. setupシェルの実行
+### 4. setupシェルの実行
 vagrant が正常に起動された後に、vagrant により作成された仮想環境（ゲスト環境）に SSH で接続し、下記コマンドを実行してください。  
 SSH 接続には、Putty などの SSH クライアントソフトを使用し、127.0.0.1 のポート 2222 に接続してください。  
 SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
@@ -140,7 +138,7 @@ sudo -s /var/www/setup
 
 --
 
-### 4. 動作確認
+### 5. 動作確認
 
 | URL                      | 用途                                 |
 | ------------------------ | ------------------------------------ |
@@ -160,7 +158,7 @@ sudo -s /var/www/setup
 
 --
 
-### 5. 開発
+### 6. 開発
 Windowsの場合、Windows のホスト側にてファイルを編集する場合は、下記 samba をマウントし作業してください。
 
 ```
@@ -171,7 +169,7 @@ Windowsの場合、Windows のホスト側にてファイルを編集する場�
 
 --
 
-### 6. 終了
+### 7. 終了
 vagrantコマンドで仮想マシンを終了します。
 Windowsの場合は、vagrant-halt.batで終了することができます。
 
@@ -181,7 +179,7 @@ vagrant halt
 
 --
 
-### 7. 再開
+### 8. 再開
 vagrantコマンドで仮想マシンを再開します。
 Windowsの場合は、vagrant-up.batで再開することができます。
 
