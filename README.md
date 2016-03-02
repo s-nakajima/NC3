@@ -227,11 +227,14 @@ vagrant provision default
 <br>
 * VirtualBoxの仮想ディスクの圧縮<br>
 下記の手順で行う<br>
-(1) "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi<br>
+(1) 下記をコマンドプロンプトから実行する<br>
+``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi ```<br>
 <br>
-(2) "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact<br>
+(2) 下記をコマンドプロンプトから実行する<br>
+``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact ```<br>
 <br>
-(3) "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk<br>
+(3) 下記をコマンドプロンプトから実行する<br>
+``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk ```<br>
 <br>
 (4) VirtualBoxを起動し、ストレージを変更する<br>
 <a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG">
