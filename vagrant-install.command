@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DIRNAME=$(dirname $0)
+cd $DIRNAME
+
 mv Vagrantfile Vagrantfile.win
 mv Vagrantfile.mac Vagrantfile
 
