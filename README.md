@@ -103,7 +103,7 @@ vagrant up default
 ##### 3-1(2)-1. vagrant_install.commandの実行
 vagrant_install.commandには、下記3-1(2)-2、3-1(2)-3も含めインストールします。
 
-##### 3-1(2)-2. synced_folder 有効化
+##### 3-1(2)-2. synced_folder 有効化 (vagrant_install.commandに含まれているため、実行する必要なし)
 
 ##### 3-1(2)-3. vagrant plugin (vagrant_install.commandに含まれているため、実行する必要なし)
 ```
