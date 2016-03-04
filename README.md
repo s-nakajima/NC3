@@ -119,8 +119,8 @@ vagrant up default
 
 ---
 
-#### 3-1(2). それ以外（Mac、Ubuntuなど）
-##### 3-1(2)-1. synced_folder 有効化
+#### 3-1(3). それ以外（Ubuntuなど）
+##### 3-1(3)-1. synced_folder 有効化
 virtualbox のある時点から Windows では synced_folder 上で symlink でリンクが貼れません。
 synced_folder を有効にしたままで vagrant up すると symlink が破壊されます。そのため、当Vagrantfileは、synced_folderを無効にしています。
 
@@ -136,13 +136,13 @@ node.vm.synced_folder '.', '/var/www/app',
 :create => true, :owner=> 'www-data', :group => 'www-data'
 ```
 
-##### 3-1(2)-2. vagrant plugin
+##### 3-1(3)-2. vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
 ```
 
-##### 3-1(2)-3. vagrant を起動
+##### 3-1(3)-3. vagrant を起動
 配置したソースのパスで vagrant を起動します。初回のみ OS のダウンロードに時間がかかります。
 
 ```
