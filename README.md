@@ -16,11 +16,12 @@ NetCommons3開発環境
 
 以下の組み合わせで動作することを確認しています。
 
-| OS           | Memory | matrix |
-| ------------ | ------ | ------ |
-| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |
-| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.1 |
-| Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |
+| OS           | Memory | matrix | 備考 |
+| ------------ | ------ | ------ | ----- |
+| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |  |
+| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.1 |  |
+| Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |  |
+| Mac 10.11.1   | 4GB   | virtualbox 5.0.14, vagrant 1.8.1 | Vagrantfileを2GB(2048)に設定変更 |
 
 
 ### Box（ゲストOS）の構成
@@ -80,7 +81,7 @@ https://github.com/join?source=header-home
 ### 3. インストール
 #### 3-1(1). Windoswの場合
 ##### 3-1(1)-1. vagrant_install.batの実行
-vagrant_install.batには、下記vagrant pluginも含めインストールします。
+vagrant_install.batには、下記3-1(1)-2、3-1(1)-3も含め実行します。
 
 ##### 3-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
 ```
@@ -91,6 +92,26 @@ vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
 ##### 3-1(1)-3. vagrant を起動 (vagrant_install.batに含まれているため、実行する必要なし)
 配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
 
+```
+vagrant up default
+```
+
+---
+
+#### 3-1(2). Mac
+##### 3-1(2)-1. vagrant_install.commandの実行
+vagrant_install.commandには、下記3-1(2)-2、3-1(2)-3も含めインストールします。
+
+##### 3-1(2)-2. synced_folder 有効化
+
+##### 3-1(2)-3. vagrant plugin (vagrant_install.commandに含まれているため、実行する必要なし)
+```
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-omnibus
+```
+
+##### 3-1(2)-4. vagrant を起動 (vagrant_install.commandに含まれているため、実行する必要なし)
+配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
 ```
 vagrant up default
 ```
