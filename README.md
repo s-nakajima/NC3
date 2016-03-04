@@ -19,6 +19,7 @@ NetCommons3開発環境
 | OS           | Memory | matrix |
 | ------------ | ------ | ------ |
 | Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |
+| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.1 |
 | Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |
 
 
