@@ -4,7 +4,7 @@ DIRNAME=$(dirname $0)
 cd $DIRNAME
 
 mv Vagrantfile Vagrantfile.win
-mv Vagrantfile.mac Vagrantfile
+cp -f Vagrantfile.mac Vagrantfile
 
 if [ ! -d logs ] ; then
   mkdir logs
