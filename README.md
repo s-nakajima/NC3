@@ -20,6 +20,8 @@ NetCommons3開発環境
 | ------------ | ------ | ------ | ----- |
 | Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |  |
 | Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.1 |  |
+| Windows 8.1 | 8GB   | VirtualBox:4.3.34, vagrant 1.7.2 |  |
+| Windows 8.1 | 16GB   | VirtualBox:4.3.32, vagrant 1.6.5 |  |
 | Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |  |
 | Windows 7 | 16GB   | virtualbox 4.3.34, vagrant 1.7.4 | Vagrantfileを2GB(2048)に設定変更 |
 | Mac 10.11.1   | 4GB   | virtualbox 5.0.14, vagrant 1.8.1 | Vagrantfileを2GB(2048)に設定変更 |
@@ -81,6 +83,12 @@ https://github.com/join?source=header-home
 
 ### 3. インストール
 #### 3-1(1). Windoswの場合
+再インストールする場合、下記の4つのディレクトリを削除もしくはリネームしてください。<br>
+C:\Users\(ユーザ名)\.gem<br>
+C:\Users\(ユーザ名)\.berkshelf<br>
+C:\Users\(ユーザ名)\.vagrant.d<br>
+C:\Users\(ユーザ名)\.VirtualBox<br>
+
 ##### 3-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記3-1(1)-2、3-1(1)-3も含め実行します。
 
