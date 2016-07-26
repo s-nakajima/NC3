@@ -24,7 +24,7 @@ NetCommons3開発環境
 | Windows 8.1 | 16GB   | VirtualBox:4.3.32, vagrant 1.6.5 |  |
 | Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |  |
 | Windows 7 | 16GB   | virtualbox 4.3.34, vagrant 1.7.4 | Vagrantfileを2GB(2048)に設定変更 |
-| Mac 10.11.1   | 4GB   | virtualbox 5.0.14, vagrant 1.8.1 | Vagrantfileを2GB(2048)に設定変更 |
+| Mac 10.11.1   | 4GB   | virtualbox 5.0.14, vagrant 1.8.1 | Vagrantfileを2GB(2048)に設定変更。ただし、開発には適していない。 |
 
 ※Guest Additions Version: 4.2.0で動作確認しています。
 
