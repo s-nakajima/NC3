@@ -53,8 +53,8 @@ OS：UbuntuでGuest Additions Version: 4.3.36は動かない？
   * [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)<br>
 Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ（Program Files 等）にはインストールしないようにしてください。vagrant 起動時にエラーが発生します。
 
-* ~~chef-dk~~
-  * ~~[https://downloads.getchef.com/chef-dk](https://downloads.getchef.com/chef-dk)~~
+* chef-dk
+  * [https://downloads.getchef.com/chef-dk](https://downloads.getchef.com/chef-dk)
 
 #### Windwosの場合
 * Git for windows
