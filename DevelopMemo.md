@@ -17,8 +17,8 @@ CentOS7.2のBoxファイル構築メモ
 ~~~~
 config.vm.box = 'NetCommons3-ubuntu'
 config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
-~~~~
-<br>↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-~~~~
+
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
 config.vm.box = 'bento/centos-7.2'
 ~~~~
