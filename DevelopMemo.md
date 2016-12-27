@@ -12,5 +12,13 @@ CentOS7.2のBoxファイル構築メモ
 
 ### ホスト側の設定
 #### 1. 純粋なBoxファイルを取得する
-手順1) https://atlas.hashicorp.com/boxes/search から取得するOSを調べる
-手順2) Vagrantfileを修正する
+##### 手順1) https://atlas.hashicorp.com/boxes/search から取得するOSを調べる
+##### 手順2) Vagrantfileを下記のように修正する
+~~~~
+config.vm.box = 'NetCommons3-ubuntu'
+config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
+~~~~
+<br>↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+~~~~
+config.vm.box = 'bento/centos-7.2'
+~~~~
