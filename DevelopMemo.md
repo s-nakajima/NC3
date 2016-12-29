@@ -8,8 +8,8 @@ CentOS7.2のBoxファイル構築メモ
 
 | ライブラリ | バージョン | 備考
 | ------------ | ------ | ------
-| OS | CentOS 7.2 | 
-| php | 5.5.23 | PHP 5.5.23-1+deb.sury.org~precise+2 (cli) (built: Mar 24 2015 11:00:01) 
+| OS | CentOS 7.2 | CentOS Linux release 7.2.1511 (Core)
+| php | 7.0.14 | PHP 7.0.14 (cli) (built: Dec  7 2016 10:15:15) ( NTS )
 | mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
 
 ### ホスト側の設定
@@ -59,6 +59,7 @@ enabled
 ~~~~
 # cp -pf /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
 # vi /etc/httpd/conf/httpd.conf
+
 各自必要に応じて編集する
 ~~~~
 
