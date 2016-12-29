@@ -104,7 +104,7 @@ systemctl restart httpd
 <?php phpinfo(); ?>
 ~~~~
 
-ブラウザで動作確認<br>
+##### ブラウザで動作確認
 http://127.0.0.1:9090/phpinfo.php
 
 #### 3. mysqlのインストール
