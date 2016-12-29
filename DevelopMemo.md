@@ -35,27 +35,27 @@ Server version: Apache/2.4.6 (CentOS)
 Server built:   Nov 14 2016 18:04:44
 ~~~~
 
-httpdの起動
+##### httpdの起動
 ~~~~
 # systemctl start httpd
 ~~~~
 
-ブラウザで確認<br>
+##### ブラウザで確認<br>
 http://127.0.0.1:9090
 
-httpdの停止
+##### httpdの停止
 ~~~~
 # systemctl stop httpd 
 ~~~~
 
-httpdの自動起動
+##### httpdの自動起動
 ~~~~
 # systemctl enable httpd
 # systemctl is-enabled httpd
 enabled
 ~~~~~
 
-/etc/httpd/conf/httpd.confの編集
+##### /etc/httpd/conf/httpd.confの編集
 ~~~~
 # cp -pf /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
 # vi /etc/httpd/conf/httpd.conf
@@ -64,22 +64,22 @@ enabled
 ~~~~
 
 #### 2. phpのインストール
-EPELリポジトリの追加
+##### EPELリポジトリの追加
 ~~~~
 # yum install epel-release
 ~~~~
 
-remiレポジトリの追加
+##### remiレポジトリの追加
 ~~~~
 # rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 ~~~~
 
-PHP7.0をインストール
+##### PHP7.0をインストール
 ~~~~
 # yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd
 ~~~~
 
-インストール結果確認
+##### インストール結果確認
 ~~~~
 # rpm -qa | grep php
 # php --version
@@ -93,12 +93,12 @@ PHP7.0をインストール
 各自必要に応じて編集する
 ~~~~
 
-httpdを再起動する
+##### httpdを再起動する
 ~~~~
 systemctl restart httpd
 ~~~~
 
-/var/www/html/phpinfo.phpファイルを生成する
+##### /var/www/html/phpinfo.phpファイルを生成する
 ~~~~
 # vi /var/www/html/phpinfo.php
 <?php phpinfo(); ?>
@@ -106,3 +106,25 @@ systemctl restart httpd
 
 ブラウザで動作確認<br>
 http://127.0.0.1:9090/phpinfo.php
+
+#### 3. mysqlのインストール
+##### MySQLリポジトリの追加
+~~~~
+# yum localinstall http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+# yum repolist all | grep mysql
+
+※有効になっているmysqlのバージョンを確認。mysql5.6になっていなければ、mysql5.6を有効にする
+
+# yum -y install yum-utils
+# yum-config-manager --disable mysql57-community
+# yum-config-manager --enable mysql56-community
+# yum repolist all | grep mysql
+~~~~
+
+##### 利用できる MySQL Community Server の確認
+~~~~
+
+~~~~
+
+
+
