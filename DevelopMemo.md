@@ -55,6 +55,13 @@ httpdの自動起動
 enabled
 ~~~~~
 
+/etc/httpd/conf/httpd.confの編集
+~~~~
+# cp -pf /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
+# vi /etc/httpd/conf/httpd.conf
+各自必要に応じて編集する
+~~~~
+
 #### 2. phpのインストール
 EPELリポジトリの追加
 ~~~~
@@ -77,4 +84,11 @@ PHP7.0をインストール
 # php --version
 ~~~~
 
+/etc/php.iniの編集
+~~~~
+# cp -pf /etc/php.ini /etc/php.ini.dist
+# vi /etc/php.ini
+
+各自必要に応じて編集する
+~~~~
 
