@@ -37,7 +37,7 @@ Server built:   Nov 14 2016 18:04:44
 
 httpdの起動
 ~~~~
-# service httpd start
+# systemctl start httpd
 ~~~~
 
 ブラウザで確認<br>
@@ -45,7 +45,7 @@ http://127.0.0.1:9090
 
 httpdの停止
 ~~~~
-# service httpd stop
+# systemctl stop httpd 
 ~~~~
 
 httpdの自動起動
@@ -93,3 +93,13 @@ PHP7.0をインストール
 各自必要に応じて編集する
 ~~~~
 
+httpdを再起動する
+~~~~
+systemctl restart httpd
+~~~~
+
+/var/www/html/phpinfo.phpファイルを生成する
+~~~~
+# vi /var/www/html/phpinfo.php
+<?php phpinfo(); ?>
+~~~~
