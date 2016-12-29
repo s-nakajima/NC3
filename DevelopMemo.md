@@ -55,3 +55,26 @@ httpdの自動起動
 enabled
 ~~~~~
 
+#### 2. phpのインストール
+EPELリポジトリの追加
+~~~~
+# yum install epel-release
+~~~~
+
+remiレポジトリの追加
+~~~~
+# rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+~~~~
+
+PHP7.0をインストール
+~~~~
+# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd
+~~~~
+
+インストール結果確認
+~~~~
+# rpm -qa | grep php
+# php --version
+~~~~
+
+
