@@ -29,5 +29,8 @@ config.vm.box = 'bento/centos-7.2'
 #### 1. httpdのインストール
 ~~~~
 # yum -y install httpd
+# httpd -v
+Server version: Apache/2.4.6 (CentOS)
+Server built:   Nov 14 2016 18:04:44
 ~~~~
 
