@@ -103,3 +103,6 @@ systemctl restart httpd
 # vi /var/www/html/phpinfo.php
 <?php phpinfo(); ?>
 ~~~~
+
+ブラウザで動作確認<br>
+http://127.0.0.1:9090/phpinfo.php
