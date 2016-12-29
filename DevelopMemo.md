@@ -48,3 +48,10 @@ httpdの停止
 # service httpd stop
 ~~~~
 
+httpdの自動起動
+~~~~
+# systemctl enable httpd
+# systemctl is-enabled httpd
+enabled
+~~~~~
+
