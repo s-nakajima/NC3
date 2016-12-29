@@ -27,10 +27,24 @@ config.vm.box = 'bento/centos-7.2'
 
 ### ゲスト側の設定
 #### 1. httpdのインストール
+httpdのインストール
 ~~~~
 # yum -y install httpd
 # httpd -v
 Server version: Apache/2.4.6 (CentOS)
 Server built:   Nov 14 2016 18:04:44
+~~~~
+
+httpdの起動
+~~~~
+# service httpd start
+~~~~
+
+ブラウザで確認<br>
+http://127.0.0.1:9090
+
+httpdの停止
+~~~~
+# service httpd stop
 ~~~~
 
