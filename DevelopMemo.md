@@ -163,3 +163,20 @@ enabled
 ~~~~
 # yum install --enablerepo=remi --enablerepo=remi-php70 php-mysql
 ~~~~
+
+##### phpからMySQLの接続できるか確認
+~~~~
+# vi /var/www/html/mysql.php
+
+<?php
+$mysqli = new mysqli('localhost', 'root', 'root');
+
+if ($mysqli->connect_errno) {
+	echo 'Failed to MySQL connect: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error;
+	exit;
+}
+$result = $mysqli->query('SET NAMES utf8;');
+
+$mysqli->close();
+echo 'Success to MySQL connect.';
+~~~~
