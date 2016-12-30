@@ -180,3 +180,6 @@ $result = $mysqli->query('SET NAMES utf8;');
 $mysqli->close();
 echo 'Success to MySQL connect.';
 ~~~~
+
+##### ブラウザで動作確認
+http://127.0.0.1:9090/mysql.php
