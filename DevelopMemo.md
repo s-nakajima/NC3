@@ -98,12 +98,12 @@ mysqld  Ver 5.6.35 for Linux on x86_64 (MySQL Community Server (GPL))
 # systemctl start mysqld
 ~~~~
 
-##### httpdの停止
+##### mysqldの停止
 ~~~~
 # systemctl stop mysqld
 ~~~~
 
-##### httpdの自動起動
+##### mysqldの自動起動
 ~~~~
 # systemctl enable mysqld
 # systemctl is-enabled mysqld
