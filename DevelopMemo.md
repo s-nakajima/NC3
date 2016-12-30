@@ -158,3 +158,8 @@ enabled
 ~~~~
 # mysqladmin -u root password 'root'
 ~~~~
+
+##### php-mysqlのインストール
+~~~~
+# yum install --enablerepo=remi --enablerepo=remi-php70 php-mysql
+~~~~
