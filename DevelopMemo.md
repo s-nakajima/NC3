@@ -167,17 +167,17 @@ enabled
 ##### phpからMySQLの接続できるか確認
 ~~~~
 # vi /var/www/html/mysql.php
-
+~~~~
+~~~~
 <?php
-$mysqli = new mysqli('localhost', 'root', 'root');
+$db = new PDO(
+	sprintf('%s:host=%s;port=%s', 'mysql', 'localhost', '3306'),
+	'root',
+	'root'
+);
+$result = $db->query('SET NAMES utf8;');
 
-if ($mysqli->connect_errno) {
-	echo 'Failed to MySQL connect: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error;
-	exit;
-}
-$result = $mysqli->query('SET NAMES utf8;');
-
-$mysqli->close();
+$db->close();
 echo 'Success to MySQL connect.';
 ~~~~
 
