@@ -152,4 +152,9 @@ mysqld  Ver 5.6.35 for Linux on x86_64 (MySQL Community Server (GPL))
 # systemctl enable mysqld
 # systemctl is-enabled mysqld
 enabled
-~~~~~
+~~~~
+
+##### root ユーザーのパスワード設定
+~~~~
+# mysqladmin -u root password 'root'
+~~~~
