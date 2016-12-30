@@ -63,51 +63,7 @@ enabled
 各自必要に応じて編集する
 ~~~~
 
-#### 2. phpのインストール
-##### EPELリポジトリの追加
-~~~~
-# yum install epel-release
-~~~~
-
-##### remiレポジトリの追加
-~~~~
-# rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-~~~~
-
-##### PHP7.0をインストール
-~~~~
-# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear
-~~~~
-
-##### インストール結果確認
-~~~~
-# rpm -qa | grep php
-# php --version
-~~~~
-
-/etc/php.iniの編集
-~~~~
-# cp -pf /etc/php.ini /etc/php.ini.dist
-# vi /etc/php.ini
-
-各自必要に応じて編集する
-~~~~
-
-##### httpdを再起動する
-~~~~
-systemctl restart httpd
-~~~~
-
-##### /var/www/html/phpinfo.phpファイルを生成する
-~~~~
-# vi /var/www/html/phpinfo.php
-<?php phpinfo(); ?>
-~~~~
-
-##### ブラウザで動作確認
-http://127.0.0.1:9090/phpinfo.php
-
-#### 3. mysqlのインストール
+#### 2. mysqlのインストール
 ##### MySQLリポジトリの追加
 ~~~~
 # yum localinstall http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
@@ -183,3 +139,48 @@ echo 'Success to MySQL connect.';
 
 ##### ブラウザで動作確認
 http://127.0.0.1:9090/mysql.php
+
+#### 3. phpのインストール
+##### EPELリポジトリの追加
+~~~~
+# yum install epel-release
+~~~~
+
+##### remiレポジトリの追加
+~~~~
+# rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+~~~~
+
+##### PHP7.0をインストール
+~~~~
+# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear php-mysql
+~~~~
+
+##### インストール結果確認
+~~~~
+# rpm -qa | grep php
+# php --version
+~~~~
+
+/etc/php.iniの編集
+~~~~
+# cp -pf /etc/php.ini /etc/php.ini.dist
+# vi /etc/php.ini
+
+各自必要に応じて編集する
+~~~~
+
+##### httpdを再起動する
+~~~~
+systemctl restart httpd
+~~~~
+
+##### /var/www/html/phpinfo.phpファイルを生成する
+~~~~
+# vi /var/www/html/phpinfo.php
+<?php phpinfo(); ?>
+~~~~
+
+##### ブラウザで動作確認
+http://127.0.0.1:9090/phpinfo.php
+
