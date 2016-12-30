@@ -120,26 +120,6 @@ enabled
 # yum install --enablerepo=remi --enablerepo=remi-php70 php-mysql
 ~~~~
 
-##### phpからMySQLの接続できるか確認
-~~~~
-# vi /var/www/html/mysql.php
-~~~~
-~~~~
-<?php
-$db = new PDO(
-	sprintf('%s:host=%s;port=%s', 'mysql', 'localhost', '3306'),
-	'root',
-	'root'
-);
-$result = $db->query('SET NAMES utf8;');
-
-$db->close();
-echo 'Success to MySQL connect.';
-~~~~
-
-##### ブラウザで動作確認
-http://127.0.0.1:9090/mysql.php
-
 #### 3. phpのインストール
 ##### EPELリポジトリの追加
 ~~~~
@@ -183,4 +163,22 @@ systemctl restart httpd
 
 ##### ブラウザで動作確認
 http://127.0.0.1:9090/phpinfo.php
+
+##### phpからMySQLの接続できるか確認
+~~~~
+# vi /var/www/html/mysql.php
+~~~~
+~~~~
+<?php
+$db = new PDO(
+	sprintf('%s:host=%s;port=%s', 'mysql', 'localhost', '3306'),
+	'root',
+	'root'
+);
+$result = $db->query('SET NAMES utf8;');
+
+$db->close();
+echo 'Success to MySQL connect.';
+~~~~
+http://127.0.0.1:9090/mysql.php
 
