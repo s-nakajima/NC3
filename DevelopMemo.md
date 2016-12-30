@@ -180,3 +180,9 @@ echo 'Success to MySQL connect.';
 ~~~~
 http://127.0.0.1:9090/mysql.php
 
+#### sambaのインストール
+##### sambaのインストール
+~~~~
+# yum -y install samba
+~~~~
+
