@@ -123,8 +123,33 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### 利用できる MySQL Community Server の確認
 ~~~~
-
+# yum info mysql-community-server
 ~~~~
 
+##### MySQL Community Server のインストール
+~~~~~
+# yum -y install mysql-community-server
+~~~~~
 
+##### MySQL Server の確認
+~~~~~
+# mysqld --version
+mysqld Ver 5.6.28 for Linux on x86_64 (MySQL Community Server (GPL))
+~~~~~
 
+##### mysqldの起動
+~~~~
+# systemctl start mysqld
+~~~~
+
+##### httpdの停止
+~~~~
+# systemctl stop mysqld
+~~~~
+
+##### httpdの自動起動
+~~~~
+# systemctl enable mysqld
+# systemctl is-enabled mysqld
+enabled
+~~~~~
