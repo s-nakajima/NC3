@@ -10,7 +10,7 @@ CentOS7.2のBoxファイル構築メモ
 | ------------ | ------ | ------
 | OS | CentOS 7.2 | CentOS Linux release 7.2.1511 (Core)
 | php | 7.0.14 | PHP 7.0.14 (cli) (built: Dec  7 2016 10:15:15) ( NTS )
-| mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
+| mysql | 5.6.35 | mysqld  Ver 5.6.35 for Linux on x86_64 (MySQL Community Server (GPL))
 
 ### ホスト側の設定
 #### 1. 純粋なBoxファイルを取得する
@@ -134,7 +134,7 @@ http://127.0.0.1:9090/phpinfo.php
 ##### MySQL Server の確認
 ~~~~~
 # mysqld --version
-mysqld Ver 5.6.28 for Linux on x86_64 (MySQL Community Server (GPL))
+mysqld  Ver 5.6.35 for Linux on x86_64 (MySQL Community Server (GPL))
 ~~~~~
 
 ##### mysqldの起動
