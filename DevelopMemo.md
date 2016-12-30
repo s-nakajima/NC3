@@ -176,8 +176,6 @@ $db = new PDO(
 	'root'
 );
 $result = $db->query('SET NAMES utf8;');
-
-$db->close();
 echo 'Success to MySQL connect.';
 ~~~~
 http://127.0.0.1:9090/mysql.php
