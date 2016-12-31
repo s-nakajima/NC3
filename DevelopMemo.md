@@ -316,4 +316,5 @@ enabled
 ##### bowerのインストール
 ~~~~
 # npm install bower -g
+# bower -v
 ~~~~
