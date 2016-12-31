@@ -84,7 +84,21 @@ SELINUX=disabled
 
 
 #### 3. NetWorkの設定
-##### 設定前の現状確認
+##### CentOS7からeth0からenp0s3という形になったため、Vagrantfileを下記のように変更して実行する
+Vagrantfile
+~~~~
+#node.vm.network :private_network, ip: '10.0.0.10', auto_config:false
+node.vm.network :private_network, ip: '10.0.0.10'
+~~~~
+
+##### 再度Vagrantfileを下記のように変更して実行する
+Vagrantfile
+~~~~
+node.vm.network :private_network, ip: '10.0.0.10', auto_config:false
+#node.vm.network :private_network, ip: '10.0.0.10'
+~~~~
+
+##### IPアドレスの確認
 ~~~~
 # ifconfig
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -113,11 +127,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 4  bytes 240 (240.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-~~~~
-
-##### IPアドレスの設定
-~~~~
-# nmcli c mod enp0s8 ipv4.addresses 10.0.0.10/24
 ~~~~
 
 
