@@ -180,11 +180,6 @@ enabled
 # mysqladmin -u root password 'root'
 ~~~~
 
-##### php-mysqlのインストール
-~~~~
-# yum install --enablerepo=remi --enablerepo=remi-php70 php-mysql
-~~~~
-
 
 #### 6. phpのインストール
 ##### EPELリポジトリの追加
