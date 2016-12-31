@@ -221,12 +221,12 @@ enabled
 systemctl restart httpd
 ~~~~
 
-##### /var/www/html/phpinfo.phpファイルを生成する
+##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# vi /var/www/html/phpinfo.php
+# vi /var/www/phpinfo.php
 ~~~~
 
-/var/www/html/phpinfo.php
+/var/www/phpinfo.php
 ~~~~
 <?php phpinfo(); ?>
 ~~~~
@@ -236,10 +236,10 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# vi /var/www/html/mysql.php
+# vi /var/www/mysql.php
 ~~~~
 
-/var/www/html/mysql.php
+/var/www/mysql.php
 ~~~~
 <?php
 $db = new PDO(
