@@ -241,12 +241,17 @@ http://127.0.0.1:9090/mysql.php
 
 ##### smbを再起動する
 ~~~~
-systemctl restart smb
+# systemctl restart smb
+# systemctl restart nmb
 ~~~~
 
 ##### smbの自動起動
 ~~~~
 # systemctl enable smb
+# systemctl enable nmb
+
 # systemctl is-enabled smb
+enabled
+# systemctl is-enabled nmb
 enabled
 ~~~~
