@@ -52,7 +52,7 @@ SELINUX=disabled
 ~~~~
 
 
-#### 2. NetWorkの設定
+#### 3. NetWorkの設定
 ##### 設定前の現状確認
 ~~~~
 # ifconfig
@@ -90,7 +90,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ~~~~
 
 
-#### 3. httpdのインストール
+#### 4. httpdのインストール
 ##### httpdのインストール
 ~~~~
 # yum -y install httpd
@@ -128,7 +128,7 @@ enabled
 ~~~~
 
 
-#### 4. mysqlのインストール
+#### 5. mysqlのインストール
 ##### MySQLリポジトリの追加
 ~~~~
 # yum localinstall http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
@@ -186,7 +186,7 @@ enabled
 ~~~~
 
 
-#### 5. phpのインストール
+#### 6. phpのインストール
 ##### EPELリポジトリの追加
 ~~~~
 # yum install epel-release
@@ -253,7 +253,7 @@ echo 'Success to MySQL connect.';
 http://127.0.0.1:9090/mysql.php
 
 
-#### 6. sambaのインストール
+#### 7. sambaのインストール
 ##### sambaのインストール
 ~~~~
 # yum -y install samba
@@ -282,4 +282,21 @@ http://127.0.0.1:9090/mysql.php
 enabled
 # systemctl is-enabled nmb
 enabled
+~~~~
+
+#### 8. Composerをインストール
+##### ダウンロード
+~~~~
+# curl -sS https://getcomposer.org/installer | php
+~~~~
+
+##### パスの確認
+~~~~
+# echo $PATH
+/sbin:/bin:/usr/sbin:/usr/bin
+~~~~
+
+##### パスが通っている場所にリネーム
+~~~~
+# mv composer.phar /usr/bin/composer
 ~~~~
