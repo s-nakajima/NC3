@@ -26,12 +26,23 @@ config.vm.box = 'bento/centos-7.2'
 ~~~~
 
 ### ゲスト側の設定
-#### 1. ファイアウォールを切る
+#### 1. OSの設定
+##### ファイアウォールを切る
 ~~~~
 # systemctl stop firewalld
 # systemctl disable firewalld
 ~~~~
 
+##### SELinuxをdisabledにする
+~~~~
+# cp -pf /etc/selinux/config /etc/selinux/config.dist
+# vi /etc/selinux/config
+~~~~
+
+/etc/selinux/configファイル
+~~~~
+SELINUX=disabled
+~~~~
 
 #### 2. NetWorkの設定
 ##### 設定前の現状確認
@@ -202,6 +213,10 @@ systemctl restart httpd
 ##### /var/www/html/phpinfo.phpファイルを生成する
 ~~~~
 # vi /var/www/html/phpinfo.php
+~~~~
+
+/var/www/html/phpinfo.php
+~~~~
 <?php phpinfo(); ?>
 ~~~~
 
@@ -212,6 +227,8 @@ http://127.0.0.1:9090/phpinfo.php
 ~~~~
 # vi /var/www/html/mysql.php
 ~~~~
+
+/var/www/html/mysql.php
 ~~~~
 <?php
 $db = new PDO(
