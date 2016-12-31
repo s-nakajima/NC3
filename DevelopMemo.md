@@ -199,7 +199,7 @@ enabled
 
 ##### PHP7.0をインストール
 ~~~~
-# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear php-mysql
+# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear php-mysql php-pecl-xdebug 
 ~~~~
 
 ##### インストール結果確認
@@ -284,7 +284,7 @@ enabled
 enabled
 ~~~~
 
-#### 8. Composerをインストール
+#### 8. composerのインストール
 ##### ダウンロード
 ~~~~
 # curl -sS https://getcomposer.org/installer | php
@@ -299,4 +299,21 @@ enabled
 ##### パスが通っている場所にリネーム
 ~~~~
 # mv composer.phar /usr/bin/composer
+~~~~
+
+#### 9. gitのインストール
+~~~~
+# yum install git
+~~~~
+
+#### 10. bowerのインストール
+##### npmのインストール
+~~~~
+# yum install nodejs npm
+# node -v
+~~~~
+
+##### bowerのインストール
+~~~~
+# npm install bower -g
 ~~~~
