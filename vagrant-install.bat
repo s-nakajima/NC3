@@ -10,7 +10,7 @@ SET CURDIR=%~dp0
 
 IF NOT EXIST %CURDIR%logs (
 	mkdir %CURDIR%logs
-) 
+)
 
 
 echo ########################## >> "%CURDIR%logs\%LOGFILE%"
@@ -19,18 +19,26 @@ REM start "%LOGFILE%" C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
 
 echo -- %date% %time% start. >> "%CURDIR%logs\%LOGFILE%"
 
-SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-hostmanager --plugin-version 1.5.0
+SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-hostmanager
 echo %MES% >> "%CURDIR%logs\%LOGFILE%"
 
 @echo on
-vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-hostmanager --plugin-version 1.5.0 >> "%CURDIR%logs\%LOGFILE%" 2>&1
+vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-hostmanager >> "%CURDIR%logs\%LOGFILE%" 2>&1
 
 
-SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-omnibus --plugin-version 1.4.1
+SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-omnibus
 echo %MES% >> "%CURDIR%logs\%LOGFILE%"
 
 @echo on
-vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-omnibus --plugin-version 1.4.1 >> "%CURDIR%logs\%LOGFILE%" 2>&1
+vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-omnibus >> "%CURDIR%logs\%LOGFILE%" 2>&1
+
+
+SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-berkshelf
+echo %MES% >> "%CURDIR%logs\%LOGFILE%"
+
+@echo on
+vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-berkshelf >> "%CURDIR%logs\%LOGFILE%" 2>&1
+
 
 SET MES=vagrant up default
 echo %MES% >> "%CURDIR%logs\%LOGFILE%"
