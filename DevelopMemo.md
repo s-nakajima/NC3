@@ -60,25 +60,28 @@ enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
         inet6 fe80::a00:27ff:fe5a:e9e7  prefixlen 64  scopeid 0x20<link>
         ether 08:00:27:5a:e9:e7  txqueuelen 1000  (Ethernet)
-        RX packets 136663  bytes 171063887 (163.1 MiB)
+        RX packets 220  bytes 25170 (24.5 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 48577  bytes 4791866 (4.5 MiB)
+        TX packets 208  bytes 31786 (31.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.0.10  netmask 255.255.255.0  broadcast 10.0.0.255
+        inet6 fe80::a00:27ff:fe26:10d9  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:26:10:d9  txqueuelen 1000  (Ethernet)
+        RX packets 3  bytes 407 (407.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 35  bytes 3509 (3.4 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 0  (Local Loopback)
-        RX packets 160  bytes 15134 (14.7 KiB)
+        RX packets 4  bytes 240 (240.0 B)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 160  bytes 15134 (14.7 KiB)
+        TX packets 4  bytes 240 (240.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-# nmcli d
-DEVICE  TYPE      STATE      CONNECTION
-enp0s3  ethernet  connected  enp0s3
-enp0s8  ethernet  unmanaged  --
-lo      loopback  unmanaged  --
 ~~~~
 
 ##### IPアドレスの設定
