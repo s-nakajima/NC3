@@ -25,6 +25,17 @@ config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroo
 config.vm.box = 'bento/centos-7.2'
 ~~~~
 
+#### 2. Boxファイルの作成
+##### ボックスファイルの作成
+~~~~
+# box 作成用のフォルダ(任意)に移動します。
+> cd xxxx(box 作成用のフォルダ)
+
+# --base：作成対象の仮想マシン名、--output：出力 box ファイル名
+> vagrant package --base "C:\Users\snakajima\VirtualBox VMs\NC3CentOS72_default_1483201373740_49744" --output nc3-centos72-php70-mysql56.box
+~~~~
+
+
 ### ゲスト側の設定
 #### 1. ファイアウォールをdisableにする
 ~~~~
