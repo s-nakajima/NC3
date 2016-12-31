@@ -285,3 +285,21 @@ vagrant provision default
 <br>
 * [CentOS7にPHP5.6,MySQL5.7,Nginx1.8の環境構築](http://qiita.com/fujiiiiii/items/a1c880f058b71595d15c#php%E8%A8%AD%E5%AE%9A)<br>
 <br>
+<br>
+* Boxファイルの作成
+~~~~
+# box 作成用のフォルダ(任意)に移動します。
+> cd xxxx(box 作成用のフォルダ)
+
+# box を作成します。
+# --base：作成対象の仮想マシン名、--output：出力 box ファイル名
+> vagrant package --base "C:\Users\snakajima\VirtualBox VMs\NC3CentOS72_default_1483201373740_49744" --output CentOS-6.7-x86_64.box
+==> CentOS-6.7-x86_64: Exporting VM...
+==> CentOS-6.7-x86_64: Compressing package to: C:/appli/vagrant/centos/CentOS-6.7-x86_64.box
+
+# 作成した box ファイルを確認します。
+> dir
+...
+YYYY/MM/DD  hh:mm       689,442,753 CentOS-6.7-x86_64.box
+...
+~~~~
