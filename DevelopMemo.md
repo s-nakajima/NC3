@@ -26,23 +26,31 @@ config.vm.box = 'bento/centos-7.2'
 ~~~~
 
 ### ゲスト側の設定
-#### 1. OSの設定
-##### ファイアウォールを切る
+#### 1. ファイアウォールをdisableにする
 ~~~~
 # systemctl stop firewalld
 # systemctl disable firewalld
 ~~~~
 
-##### SELinuxをdisabledにする
+#### 2. SELinuxをdisabledにする
+##### /etc/selinux/configを編集する
 ~~~~
 # cp -pf /etc/selinux/config /etc/selinux/config.dist
 # vi /etc/selinux/config
 ~~~~
 
-/etc/selinux/configファイル
+/etc/selinux/config
 ~~~~
 SELINUX=disabled
 ~~~~
+
+##### サーバを再起動する
+
+##### SELinuxが無効になっていることを確認
+~~~~
+# getenforce
+~~~~
+
 
 #### 2. NetWorkの設定
 ##### 設定前の現状確認
