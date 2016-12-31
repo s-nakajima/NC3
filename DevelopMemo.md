@@ -142,7 +142,7 @@ enabled
 # php --version
 ~~~~
 
-/etc/php.iniの編集
+##### /etc/php.iniの編集
 ~~~~
 # cp -pf /etc/php.ini /etc/php.ini.dist
 # vi /etc/php.ini
@@ -186,3 +186,22 @@ http://127.0.0.1:9090/mysql.php
 # yum -y install samba
 ~~~~
 
+##### /etc/samba/smb.confの編集
+~~~~
+# cp -pf /etc/samba/smb.conf /etc/samba/smb.conf.dist
+# vi /etc/samba/smb.conf
+
+各自必要に応じて編集する
+~~~~
+
+##### smbを再起動する
+~~~~
+systemctl restart smb
+~~~~
+
+##### smbの自動起動
+~~~~
+# systemctl enable smb
+# systemctl is-enabled smb
+enabled
+~~~~
