@@ -27,7 +27,7 @@ config.vm.box = 'bento/centos-7.2'
 
 ### ゲスト側の設定
 #### 1. httpdのインストール
-httpdのインストール
+##### httpdのインストール
 ~~~~
 # yum -y install httpd
 # httpd -v
@@ -180,7 +180,7 @@ echo 'Success to MySQL connect.';
 ~~~~
 http://127.0.0.1:9090/mysql.php
 
-#### sambaのインストール
+#### 4. sambaのインストール
 ##### sambaのインストール
 ~~~~
 # yum -y install samba
@@ -204,4 +204,33 @@ systemctl restart smb
 # systemctl enable smb
 # systemctl is-enabled smb
 enabled
+~~~~
+
+#### 5. NetWorkの設定
+##### 設定前の現状確認
+~~~~
+# ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::a00:27ff:fe5a:e9e7  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:5a:e9:e7  txqueuelen 1000  (Ethernet)
+        RX packets 136663  bytes 171063887 (163.1 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 48577  bytes 4791866 (4.5 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 0  (Local Loopback)
+        RX packets 160  bytes 15134 (14.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 160  bytes 15134 (14.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+# nmcli d
+DEVICE  TYPE      STATE      CONNECTION
+enp0s3  ethernet  connected  enp0s3
+enp0s8  ethernet  unmanaged  --
+lo      loopback  unmanaged  --
 ~~~~
