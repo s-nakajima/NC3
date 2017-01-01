@@ -78,10 +78,13 @@ SELINUX=disabled
 #### 3. sshの設定
 ##### /etc/selinux/configを編集する
 ~~~~
-# cp -pf /etc/ssh/ssh_config /etc/ssh/ssh_config.dist
-# vi /etc/ssh/ssh_config
+# mv /etc/ssh/ssh_config /etc/ssh/ssh_config.dist
+# cp /home/vagrant/default/ssh/ssh_config /etc/ssh/
 
-# cp -pf /etc/ssh/sshd_config /etc/ssh/sshd_config.dist
+# mv /etc/ssh/sshd_config /etc/ssh/sshd_config.dist
+# cp /home/vagrant/default/ssh/sshd_config /etc/ssh/
+# chown root:root /etc/ssh/sshd_config
+# chmod 600 /etc/ssh/sshd_config
 ~~~~
 
 /etc/selinux/config
