@@ -234,7 +234,7 @@ enabled
 
 ##### PHP7.0をインストール
 ~~~~
-# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear php-mysql php-pecl-xdebug 
+# yum install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-pear php-mysql php-pecl-xdebug php-mcrypt
 ~~~~
 
 ##### インストール結果確認
