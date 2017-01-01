@@ -383,5 +383,8 @@ enabled
 ~~~~
 # yum install --enablerepo=remi,remi-php70 phpMyAdmin
 # cd /var/www/
-# ln -s /etc/phpMyAdmin phpmyadmin
+# wget https://files.phpmyadmin.net/phpMyAdmin/4.6.5.2/phpMyAdmin-4.6.5.2-all-languages.zip
+# unzip phpMyAdmin-4.6.5.2-all-languages.zip
+# mv phpMyAdmin-4.6.5.2-all-languages phpMyAdmin
+# rm -f phpMyAdmin-4.6.5.2-all-languages.zip
 ~~~~
