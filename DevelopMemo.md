@@ -82,7 +82,6 @@ SELINUX=disabled
 # vi /etc/ssh/ssh_config
 
 # cp -pf /etc/ssh/sshd_config /etc/ssh/sshd_config.dist
-
 ~~~~
 
 /etc/selinux/config
@@ -177,7 +176,7 @@ enabled
 ##### /etc/httpd/conf/httpd.confの編集
 ~~~~
 # mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
-# cp /home/vagrant/httpd/httpd.conf /etc/httpd/conf/
+# cp /home/vagrant/default/httpd/httpd.conf /etc/httpd/conf/
 ~~~~
 
 
@@ -238,7 +237,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 ##### my.cnfの修正
 ~~~~
 # mv /etc/my.cnf /etc/my.cnf.dist
-# cp /home/vagrant/mysql/my.cnf /etc/
+# cp /home/vagrant/default/mysql/my.cnf /etc/
 ~~~~
 
 
@@ -267,7 +266,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 ##### /etc/php.iniの編集
 ~~~~
 # mv /etc/php.ini /etc/php.ini.dist
-# cp /home/vagrant/php/php.ini /etc/
+# cp /home/vagrant/default/php/php.ini /etc/
 ~~~~
 
 ##### httpdを再起動する
@@ -277,7 +276,7 @@ systemctl restart httpd
 
 ##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# cp /home/vagrant/php/phpinfo.php /var/www
+# cp /home/vagrant/default/php/phpinfo.php /var/www
 ~~~~
 
 ##### ブラウザで動作確認
@@ -285,7 +284,7 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# cp /home/vagrant/php/mysql.php /var/www
+# cp /home/vagrant/default/php/mysql.php /var/www
 ~~~~
 
 /var/www/mysql.php
@@ -311,7 +310,7 @@ http://127.0.0.1:9090/mysql.php
 ##### /etc/samba/smb.confの編集
 ~~~~
 # mv /etc/samba/smb.conf /etc/samba/smb.conf.dist
-# cp /home/vagrant/samba/mb.conf /etc/samba/
+# cp /home/vagrant/default/samba/mb.conf /etc/samba/
 ~~~~
 
 ##### smbを再起動する
