@@ -98,7 +98,7 @@ SELINUX=disabled
 ~~~~
 
 
-#### 3. NetWorkの設定
+#### 4. NetWorkの設定
 ##### CentOS7からeth0からenp0s3という形になったため、Vagrantfileを下記のように変更して実行する
 Vagrantfile
 ~~~~
@@ -145,7 +145,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ~~~~
 
 
-#### 4. httpdのインストール
+#### 5. httpdのインストール
 ##### httpdのインストール
 ~~~~
 # yum -y install httpd
@@ -176,14 +176,12 @@ enabled
 
 ##### /etc/httpd/conf/httpd.confの編集
 ~~~~
-# cp -pf /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
-# vi /etc/httpd/conf/httpd.conf
-
-各自必要に応じて編集する
+# mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
+# cp /home/vagrant/httpd/httpd.conf /etc/httpd/conf/
 ~~~~
 
 
-#### 5. mysqlのインストール
+#### 6. mysqlのインストール
 ##### MySQLリポジトリの追加
 ~~~~
 # yum localinstall http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
@@ -237,8 +235,14 @@ enabled
 mysql> set password for root@'127.0.0.1' = password('root');
 ~~~~
 
+##### my.cnfの修正
+~~~~
+# mv /etc/my.cnf /etc/my.cnf.dist
+# cp /home/vagrant/mysql/my.cnf /etc/
+~~~~
 
-#### 6. phpのインストール
+
+#### 7. phpのインストール
 ##### EPELリポジトリの追加
 ~~~~
 # yum install epel-release
@@ -262,10 +266,8 @@ mysql> set password for root@'127.0.0.1' = password('root');
 
 ##### /etc/php.iniの編集
 ~~~~
-# cp -pf /etc/php.ini /etc/php.ini.dist
-# vi /etc/php.ini
-
-各自必要に応じて編集する
+# mv /etc/php.ini /etc/php.ini.dist
+# cp /home/vagrant/php/php.ini /etc/
 ~~~~
 
 ##### httpdを再起動する
@@ -275,12 +277,7 @@ systemctl restart httpd
 
 ##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# vi /var/www/phpinfo.php
-~~~~
-
-/var/www/phpinfo.php
-~~~~
-<?php phpinfo(); ?>
+# cp /home/vagrant/php/phpinfo.php /var/www
 ~~~~
 
 ##### ブラウザで動作確認
@@ -288,7 +285,7 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# vi /var/www/mysql.php
+# cp /home/vagrant/php/mysql.php /var/www
 ~~~~
 
 /var/www/mysql.php
@@ -305,7 +302,7 @@ echo 'Success to MySQL connect.';
 http://127.0.0.1:9090/mysql.php
 
 
-#### 7. sambaのインストール
+#### 8. sambaのインストール
 ##### sambaのインストール
 ~~~~
 # yum -y install samba
@@ -313,10 +310,8 @@ http://127.0.0.1:9090/mysql.php
 
 ##### /etc/samba/smb.confの編集
 ~~~~
-# cp -pf /etc/samba/smb.conf /etc/samba/smb.conf.dist
-# vi /etc/samba/smb.conf
-
-各自必要に応じて編集する
+# mv /etc/samba/smb.conf /etc/samba/smb.conf.dist
+# cp /home/vagrant/samba/mb.conf /etc/samba/
 ~~~~
 
 ##### smbを再起動する
@@ -336,7 +331,7 @@ enabled
 enabled
 ~~~~
 
-#### 8. composerのインストール
+#### 9. composerのインストール
 ##### ダウンロード
 ~~~~
 # curl -sS https://getcomposer.org/installer | php
@@ -353,12 +348,12 @@ enabled
 # mv composer.phar /usr/bin/composer
 ~~~~
 
-#### 9. gitのインストール
+#### 10. gitのインストール
 ~~~~
 # yum install git
 ~~~~
 
-#### 10. bowerのインストール
+#### 11. bowerのインストール
 ##### npmのインストール
 ~~~~
 # yum install nodejs npm
@@ -371,7 +366,7 @@ enabled
 # bower -v
 ~~~~
 
-#### 11. zipのインストール
+#### 12. zipのインストール
 ##### zipのインストール
 ~~~~
 # yum install zip
