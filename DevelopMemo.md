@@ -353,3 +353,14 @@ enabled
 # npm install bower -g
 # bower -v
 ~~~~
+
+#### 11. zipのインストール
+##### zipのインストール
+~~~~
+# yum install zip
+~~~~
+
+##### unzipのインストール
+~~~~
+# yum install unzip
+~~~~
