@@ -4,7 +4,7 @@ CentOS7.2のBoxファイル構築メモ
 ### 
 
 ### Box（ゲストOS）の構成
-#### 1. NetCommons3-centos72（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/)）
+#### 1. NetCommons3-centos72（[nc3-centos72-php70-mysql56.box](http://download.nakazii-co.jp/)）
 
 | ライブラリ | バージョン | 備考
 | ------------ | ------ | ------
