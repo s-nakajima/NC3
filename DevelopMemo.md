@@ -25,6 +25,37 @@ config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroo
 config.vm.box = 'bento/centos-7.2'
 ~~~~
 
+#### 2. Boxファイルの作成
+##### ボックスファイルの作成
+~~~~
+# box 作成用のフォルダ(任意)に移動します。
+> cd xxxx(box 作成用のフォルダ)
+
+# --base：作成対象の仮想マシン名、--output：出力 box ファイル名
+> vagrant package
+~~~~
+
+##### ファイル名を変更する
+~~~~
+nc3-centos72-php70-mysql56.box
+~~~~
+
+##### ボックスファイルをアップロードする
+~~~~
+http://download.nakazii-co.jp/nc3-centos72-php70-mysql56.box
+~~~~
+
+##### Vagrantfileを下記のように修正する
+~~~~
+config.vm.box = 'bento/centos-7.2'
+
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+config.vm.box = 'NetCommons3-centos72'
+config.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos72-php70-mysql56.box'
+~~~~
+
+
 ### ゲスト側の設定
 #### 1. ファイアウォールをdisableにする
 ~~~~
@@ -53,7 +84,21 @@ SELINUX=disabled
 
 
 #### 3. NetWorkの設定
-##### 設定前の現状確認
+##### CentOS7からeth0からenp0s3という形になったため、Vagrantfileを下記のように変更して実行する
+Vagrantfile
+~~~~
+#node.vm.network :private_network, ip: '10.0.0.10', auto_config:false
+node.vm.network :private_network, ip: '10.0.0.10'
+~~~~
+
+##### 再度Vagrantfileを下記のように変更して実行する
+Vagrantfile
+~~~~
+node.vm.network :private_network, ip: '10.0.0.10', auto_config:false
+#node.vm.network :private_network, ip: '10.0.0.10'
+~~~~
+
+##### IPアドレスの確認
 ~~~~
 # ifconfig
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -82,11 +127,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 4  bytes 240 (240.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-~~~~
-
-##### IPアドレスの設定
-~~~~
-# nmcli c mod enp0s8 ipv4.addresses 10.0.0.10/24
 ~~~~
 
 
@@ -178,11 +218,6 @@ enabled
 ##### root ユーザーのパスワード設定
 ~~~~
 # mysqladmin -u root password 'root'
-~~~~
-
-##### php-mysqlのインストール
-~~~~
-# yum install --enablerepo=remi --enablerepo=remi-php70 php-mysql
 ~~~~
 
 
