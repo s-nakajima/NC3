@@ -378,3 +378,10 @@ enabled
 ~~~~
 # yum install unzip
 ~~~~
+
+#### 13. phpMyAdminのインストール
+~~~~
+# yum install --enablerepo=remi,remi-php70 phpMyAdmin
+# cd /var/www/
+# ln -s /etc/phpMyAdmin phpmyadmin
+~~~~
