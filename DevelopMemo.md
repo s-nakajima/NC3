@@ -75,6 +75,21 @@ config.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos72-php70-mysql56.bo
 SELINUX=disabled
 ~~~~
 
+#### 3. sshの設定
+##### /etc/selinux/configを編集する
+~~~~
+# cp -pf /etc/ssh/ssh_config /etc/ssh/ssh_config.dist
+# vi /etc/ssh/ssh_config
+
+# cp -pf /etc/ssh/sshd_config /etc/ssh/sshd_config.dist
+
+~~~~
+
+/etc/selinux/config
+~~~~
+SELINUX=disabled
+~~~~
+
 ##### サーバを再起動する
 
 ##### SELinuxが無効になっていることを確認
@@ -218,6 +233,8 @@ enabled
 ##### root ユーザーのパスワード設定
 ~~~~
 # mysqladmin -u root password 'root'
+# mysql -uroot -proot
+mysql> set password for root@'127.0.0.1' = password('root');
 ~~~~
 
 
