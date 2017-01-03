@@ -19,9 +19,9 @@ Vagrant.configure('2') do |config|
     #node.vm.network :private_network, ip: '10.0.0.10'
 
     node.vm.hostname = 'app2.local'
-    #node.hostmanager.aliases = %w(
-    #  html.local
-    #)
+    node.hostmanager.aliases = %w(
+      html.local app.local phpmyadmin.local
+    )
     node.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.memory = 4096
@@ -30,7 +30,7 @@ Vagrant.configure('2') do |config|
     node.vm.synced_folder '.', '/var/www/app', disabled: true,
     #- mac and ubuntu, etc.
     #node.vm.synced_folder '.', '/var/www/app',
-    :create => true, :owner=> 'apache', :group => 'apache'
+    :create => true, :owner=> 'vagrant', :group => 'vagrant'
   end
 
   # Setup mysql slave
