@@ -180,6 +180,9 @@ enabled
 ~~~~
 # mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
 # cp /home/vagrant/default/httpd/httpd.conf /etc/httpd/conf/
+# cp /home/vagrant/default/httpd/conf.d/app.conf /etc/httpd/conf.d/
+# cp /home/vagrant/default/httpd/conf.d/html.conf /etc/httpd/conf.d/
+# cp /home/vagrant/default/httpd/conf.d/phpmyadmin.conf /etc/httpd/conf.d/
 ~~~~
 
 
@@ -286,7 +289,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 
 ##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# cp /home/vagrant/default/php/phpinfo.php /var/www
+# cp /home/vagrant/default/php/phpinfo.php /var/www/app/
 ~~~~
 
 ##### ブラウザで動作確認
@@ -294,7 +297,7 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# cp /home/vagrant/default/php/mysql.php /var/www
+# cp /home/vagrant/default/php/mysql.php /var/www/app/
 ~~~~
 
 /var/www/mysql.php
