@@ -4,7 +4,7 @@ CentOS7.2のBoxファイル構築メモ
 ### 
 
 ### Box（ゲストOS）の構成
-#### 1. NetCommons3-centos72（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/)）
+#### 1. NetCommons3-centos72（[nc3-centos72-php70-mysql56.box](http://download.nakazii-co.jp/)）
 
 | ライブラリ | バージョン | 備考
 | ------------ | ------ | ------
@@ -180,6 +180,9 @@ enabled
 ~~~~
 # mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
 # cp /home/vagrant/default/httpd/httpd.conf /etc/httpd/conf/
+# cp /home/vagrant/default/httpd/conf.d/app.conf /etc/httpd/conf.d/
+# cp /home/vagrant/default/httpd/conf.d/html.conf /etc/httpd/conf.d/
+# cp /home/vagrant/default/httpd/conf.d/phpmyadmin.conf /etc/httpd/conf.d/
 ~~~~
 
 
@@ -274,12 +277,19 @@ mysql> set password for root@'127.0.0.1' = password('root');
 
 ##### httpdを再起動する
 ~~~~
-systemctl restart httpd
+# systemctl restart httpd
+~~~~
+
+##### ImageMagickのインストール
+~~~~
+# yum install ImageMagick ImageMagick-devel ImageMagick-perl
+# yum install gcc
+# pecl install imagick
 ~~~~
 
 ##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# cp /home/vagrant/default/php/phpinfo.php /var/www
+# cp /home/vagrant/default/php/phpinfo.php /var/www/app/
 ~~~~
 
 ##### ブラウザで動作確認
@@ -287,7 +297,7 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# cp /home/vagrant/default/php/mysql.php /var/www
+# cp /home/vagrant/default/php/mysql.php /var/www/app/
 ~~~~
 
 /var/www/mysql.php
@@ -387,4 +397,11 @@ enabled
 # unzip phpMyAdmin-4.6.5.2-all-languages.zip
 # mv phpMyAdmin-4.6.5.2-all-languages phpMyAdmin
 # rm -f phpMyAdmin-4.6.5.2-all-languages.zip
+~~~~
+
+#### 14. travisのインストール
+~~~~
+yum -y install gem
+yum -y install ruby-devel
+gem install travis
 ~~~~
