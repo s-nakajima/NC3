@@ -274,7 +274,14 @@ mysql> set password for root@'127.0.0.1' = password('root');
 
 ##### httpdを再起動する
 ~~~~
-systemctl restart httpd
+# systemctl restart httpd
+~~~~
+
+##### ImageMagickのインストール
+~~~~
+# yum install ImageMagick ImageMagick-devel ImageMagick-perl
+# yum install gcc
+# pecl install imagick
 ~~~~
 
 ##### /var/www/phpinfo.phpファイルを生成する
