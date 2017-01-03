@@ -395,3 +395,10 @@ enabled
 # mv phpMyAdmin-4.6.5.2-all-languages phpMyAdmin
 # rm -f phpMyAdmin-4.6.5.2-all-languages.zip
 ~~~~
+
+#### 14. travisのインストール
+~~~~
+yum -y install gem
+yum -y install ruby-devel
+gem install travis
+~~~~
