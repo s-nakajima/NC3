@@ -275,6 +275,12 @@ mysql> set password for root@'127.0.0.1' = password('root');
 # cp /home/vagrant/default/php/php.ini /etc/
 ~~~~
 
+##### /var/lib/php/sessionのパーミッション変更
+~~~~
+# cd /var/lib/php/session
+# chgrp -R vagrant .
+~~~~
+
 ##### httpdを再起動する
 ~~~~
 # systemctl restart httpd
