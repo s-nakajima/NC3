@@ -257,7 +257,7 @@ vagrant provision default
 <br>
 
 ## 参考
-* [Vagrantでexportした環境(box)を取り込む方法](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)<br>
+* [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)<br>
 <br>
 * VirtualBoxの仮想ディスクの圧縮<br>
 下記の手順で行う<br>
