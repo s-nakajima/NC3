@@ -257,7 +257,7 @@ vagrant provision default
 <br>
 
 ## 参考
-* [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)<br>
+* [Vagrantでexportした環境(box)を取り込む方法]http://d.hatena.ne.jp/yohei-a/20110124/1295887695br>
 <br>
 * VirtualBoxの仮想ディスクの圧縮<br>
 下記の手順で行う<br>
@@ -303,3 +303,6 @@ vagrant provision default
 YYYY/MM/DD  hh:mm       689,442,753 CentOS-6.7-x86_64.box
 ...
 ~~~~
+
+* [VT-xの有効可](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)
+CLIでVT-x is not availableやVERR_VMX_NO_VMX等のエラーでVirtualBox VMが起動しない場合、BOISでVT-xを有効にする必要がある。
