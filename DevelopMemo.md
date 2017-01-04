@@ -146,6 +146,10 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ~~~~
 
+#### ネット関係のコマンド(ifconfig,nslookupなど)を入れる
+~~~~
+yum install -y net-tools bind-utils
+~~~~
 
 #### 5. httpdのインストール
 ##### httpdのインストール
