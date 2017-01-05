@@ -425,6 +425,7 @@ enabled
 ##### pipのインストール
 ~~~~
 # yum install python-pip
+# pip install six
 ~~~~
 
 ##### pear等をのインストール
