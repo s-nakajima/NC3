@@ -148,7 +148,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 #### ネット関係のコマンド(ifconfig,nslookupなど)を入れる
 ~~~~
-yum install -y net-tools bind-utils
+# yum install -y net-tools bind-utils
 ~~~~
 
 #### 5. httpdのインストール
@@ -411,7 +411,13 @@ enabled
 
 #### 14. travisのインストール
 ~~~~
-yum -y install gem
-yum -y install ruby-devel
-gem install travis
+# yum -y install gem
+# yum -y install ruby-devel
+# gem install travis
+~~~~
+
+#### 15. テストを実行させるための設定
+##### phpmd.xmlをセット
+~~~~
+# cp -R /home/vagrant/default/phpmd /etc/
 ~~~~
