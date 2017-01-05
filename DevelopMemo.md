@@ -426,3 +426,10 @@ enabled
 ~~~~
 # yum install python-pip
 ~~~~
+
+##### pear等をのインストール
+~~~~
+# cd /var/www/MyShell/nc3PluginTest
+# bash nc3PluginTest.sh pear_install
+~~~~
+
