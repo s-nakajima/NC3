@@ -421,3 +421,8 @@ enabled
 ~~~~
 # cp -R /home/vagrant/default/phpmd /etc/
 ~~~~
+
+##### pipのインストール
+~~~~
+# yum install python-pip
+~~~~
