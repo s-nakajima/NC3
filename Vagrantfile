@@ -9,10 +9,10 @@ Vagrant.configure('2') do |config|
   config.hostmanager.ignore_private_ip = true
 
   # Setup default vm
-  config.vm.box = 'NetCommons3-ubuntu'
-  config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
-
   config.vm.define 'default', primary: true do |node|
+    config.vm.box = 'NetCommons3-ubuntu'
+    config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
+
     node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
     node.vm.network :private_network, ip: '10.0.0.10'
     node.vm.hostname = 'app.local'
