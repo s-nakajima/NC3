@@ -333,7 +333,7 @@ http://127.0.0.1:9090/mysql.php
 ##### /etc/samba/smb.confの編集
 ~~~~
 # mv /etc/samba/smb.conf /etc/samba/smb.conf.dist
-# cp /home/vagrant/default/samba/mb.conf /etc/samba/
+# cp /home/vagrant/default/samba/smb.conf /etc/samba/
 ~~~~
 
 ##### smbを再起動する
@@ -430,6 +430,7 @@ enabled
 
 ##### pear等をのインストール
 ~~~~
+# git clone https://github.com/s-nakajima/MyShell.git
 # cd /var/www/MyShell/nc3PluginTest
 # bash nc3PluginTest.sh pear_install
 ~~~~
