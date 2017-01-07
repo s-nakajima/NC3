@@ -1,7 +1,7 @@
 @echo off
 
 SET VAGRANTOPT1=up
-SET VAGRANTOPT2=default,centos72
+SET VAGRANTOPT2=centos72
 
 SET LOGFILE=%DATE:/=%-%TIME:~0,2%%TIME:~3,2%_vagrant-%VAGRANTOPT1%.log
 REM SET LOGFILE=%DATE:/=%_vagrant-%VAGRANTOPT1%.log
