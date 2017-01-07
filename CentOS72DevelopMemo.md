@@ -430,6 +430,7 @@ enabled
 
 ##### pear等をのインストール
 ~~~~
+# cd /var/www/
 # git clone https://github.com/s-nakajima/MyShell.git
 # cd /var/www/MyShell/nc3PluginTest
 # bash nc3PluginTest.sh pear_install
