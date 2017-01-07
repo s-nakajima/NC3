@@ -28,9 +28,9 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.define 'centos71', primary: true do |node|
-    #node.vm.box = 'NetCommons3-centos71'
-    node.vm.box = 'bento/centos-7.1'
-    #node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php70-mysql56.box'
+    node.vm.box = 'NetCommons3-centos71'
+    #node.vm.box = 'bento/centos-7.1'
+    node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php70-mysql56.box'
     
     node.vm.network :forwarded_port, guest: 22, host: 2224, id: 'ssh'
     node.vm.network :forwarded_port, guest: 80, host: 9094, auto_correct: true
