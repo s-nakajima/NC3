@@ -1,10 +1,10 @@
-CentOS7.2のBoxファイル構築メモ
+CentOS7.1のBoxファイル構築メモ
 =======
 
 ### 
 
 ### Box（ゲストOS）の構成
-#### 1. NetCommons3-centos72（[nc3-centos72-php70-mysql56.box](http://download.nakazii-co.jp/)）
+#### 1. NetCommons3-centos71（[nc3-centos71-php70-mysql56.box](http://download.nakazii-co.jp/)）
 
 | ライブラリ | バージョン | 備考
 | ------------ | ------ | ------
@@ -42,7 +42,7 @@ nc3-centos72-php70-mysql56.box
 
 ##### ボックスファイルをアップロードする
 ~~~~
-http://download.nakazii-co.jp/nc3-centos72-php70-mysql56.box
+http://download.nakazii-co.jp/nc3-centos71-php70-mysql56.box
 ~~~~
 
 ##### Vagrantfileを下記のように修正する
@@ -52,7 +52,7 @@ config.vm.box = 'bento/centos-7.2'
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 config.vm.box = 'NetCommons3-centos72'
-config.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos72-php70-mysql56.box'
+config.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php70-mysql56.box'
 ~~~~
 
 
