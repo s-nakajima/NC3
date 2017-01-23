@@ -75,8 +75,16 @@ config.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php70-mysql56.bo
 SELINUX=disabled
 ~~~~
 
+##### サーバを再起動する
+
+##### SELinuxが無効になっていることを確認
+~~~~
+# getenforce
+~~~~
+
+
 #### 3. sshの設定
-##### /etc/selinux/configを編集する
+##### /etc/ssh/ssh_configを編集する
 ~~~~
 # mv /etc/ssh/ssh_config /etc/ssh/ssh_config.dist
 # cp /home/vagrant/default/ssh/ssh_config /etc/ssh/
@@ -85,13 +93,6 @@ SELINUX=disabled
 # cp /home/vagrant/default/ssh/sshd_config /etc/ssh/
 # chown root:root /etc/ssh/sshd_config
 # chmod 600 /etc/ssh/sshd_config
-~~~~
-
-##### サーバを再起動する
-
-##### SELinuxが無効になっていることを確認
-~~~~
-# getenforce
 ~~~~
 
 
