@@ -87,11 +87,6 @@ SELINUX=disabled
 # chmod 600 /etc/ssh/sshd_config
 ~~~~
 
-/etc/selinux/config
-~~~~
-SELINUX=disabled
-~~~~
-
 ##### サーバを再起動する
 
 ##### SELinuxが無効になっていることを確認
