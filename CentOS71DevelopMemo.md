@@ -246,6 +246,11 @@ mysql> set password for root@'127.0.0.1' = password('root');
 # cp /home/vagrant/default/mysql/my.cnf /etc/
 ~~~~
 
+##### /var/log/mysqlの作成
+~~~~
+# mkdir /var/log/mysql
+# chown mysql:mysql -R /var/log/mysql
+~~~~
 
 #### 7. phpのインストール
 ##### EPELリポジトリの追加
