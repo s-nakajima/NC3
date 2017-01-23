@@ -95,7 +95,6 @@ SELINUX=disabled
 # chmod 600 /etc/ssh/sshd_config
 ~~~~
 
-
 #### 4. NetWorkの設定
 ##### CentOS7からeth0からenp0s3という形になったため、Vagrantfileを下記のように変更して実行する
 Vagrantfile
@@ -141,6 +140,9 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 4  bytes 240 (240.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ~~~~
+
+=======
+以下は、シェル化した。
 
 #### ネット関係のコマンド(ifconfig,nslookupなど)を入れる
 ~~~~
