@@ -72,6 +72,16 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ~~~~
 
+
+##### 手順7) インストール後、IPアドレスを変更
+~~~~
+nmcli connection add type ethernet con-name enp0s8 ifname enp0s8
+nmcli connection modify enp0s8 ipv4.method manual ipv4.addresses 10.0.0.14/24
+
+systemctl restart network.service
+~~~~
+
+
 #### 2. Boxファイルの作成
 ##### ボックスファイルの作成
 ~~~~
