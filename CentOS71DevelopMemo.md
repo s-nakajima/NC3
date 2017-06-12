@@ -89,7 +89,7 @@ systemctl restart network.service
 > cd xxxx(box 作成用のフォルダ)
 
 # --base：作成対象の仮想マシン名、--output：出力 box ファイル名
-> vagrant package
+> vagrant package default
 ~~~~
 
 ##### ファイル名を変更する
