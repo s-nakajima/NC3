@@ -259,23 +259,34 @@ vagrant provision default
 ## 参考
 * [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)<br>
 <br>
-* VirtualBoxの仮想ディスクの圧縮<br>
+* VirtualBoxの仮想ディスクの圧縮
+
 下記の手順で行う<br>
-(1) 下記をコマンドプロンプトから実行する<br>
-``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi ```<br>
-<br>
-(2) 下記をコマンドプロンプトから実行する<br>
-``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact ```<br>
-<br>
-(3) 下記をコマンドプロンプトから実行する<br>
-``` "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk ```<br>
-<br>
-(4) VirtualBoxを起動し、ストレージを変更する<br>
+(1) 下記をコマンドプロンプトから実行する
+```
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi 
+```
+
+(2) 下記をコマンドプロンプトから実行する
+```
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact
+```
+
+(3) 下記をコマンドプロンプトから実行する
+```
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk
+```
+
+(4) VirtualBoxを起動し、ストレージを変更する
+
 <a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG">
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG" width="400px">
-</a><br>
+</a>
+
+<br>
 <br>
 (参考)
+
  * [VirtualBoxの仮想ディスクのサイズを変更する](http://qiita.com/niwashun/items/f71b0b805a6f97b514ec)
  * [VirtualBoxの仮想ディスクの圧縮](http://vboxmania.net/content/%E4%BB%AE%E6%83%B3%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E3%81%AE%E5%9C%A7%E7%B8%AE)<br>
 <br>
