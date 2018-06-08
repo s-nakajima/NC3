@@ -1,0 +1,17 @@
+/var/www/app/app/tmp/logs/*.log {
+    create 664 vagrant vagrant
+    su vagrant vagrant
+    rotate 3
+    missingok
+    notifempty
+    nocompress
+}
+/var/www/html/nc3/app/tmp/logs/*.log {
+    create 664 vagrant vagrant
+    su vagrant vagrant
+    rotate 3
+    missingok
+    notifempty
+    daily
+    nocompress
+}
