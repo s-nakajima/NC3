@@ -122,7 +122,7 @@ RM2/tools/chef/site-cookbooks/netcommons/templates/default
 ##### /etc/selinux/configを編集する
 ~~~~
 # cp -pf /etc/selinux/config /etc/selinux/config.dist
-# vi /etc/selinux/config
+# cp /var/www/vagrant/environment/default/selinux/config /etc/selinux/config
 ~~~~
 
 /etc/selinux/config
@@ -142,17 +142,17 @@ SELINUX=disabled
 ##### /etc/ssh/ssh_configを編集する
 ~~~~
 # mv /etc/ssh/ssh_config /etc/ssh/ssh_config.dist
-# cp /home/vagrant/default/ssh/ssh_config /etc/ssh/
+# cp /var/www/vagrant/environment/default/ssh/ssh_config /etc/ssh/
 
 # mv /etc/ssh/sshd_config /etc/ssh/sshd_config.dist
-# cp /home/vagrant/default/ssh/sshd_config /etc/ssh/
+# cp /var/www/vagrant/environment/default/ssh/sshd_config /etc/ssh/
 # chown root:root /etc/ssh/sshd_config
 # chmod 600 /etc/ssh/sshd_config
 ~~~~
 
 #### 3. パッケージのインストール・設定
 ~~~~
-# cd /home/vagrant/default/
+# cd /var/www/vagrant/environment/default/
 # bash install_packages.sh
 ~~~~
 このシェルは、下記を実行する
@@ -200,10 +200,10 @@ enabled
 ##### /etc/httpd/conf/httpd.confの編集
 ~~~~
 # mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.dist
-# cp /home/vagrant/default/httpd/httpd.conf /etc/httpd/conf/
-# cp /home/vagrant/default/httpd/conf.d/app.conf /etc/httpd/conf.d/
-# cp /home/vagrant/default/httpd/conf.d/html.conf /etc/httpd/conf.d/
-# cp /home/vagrant/default/httpd/conf.d/phpmyadmin.conf /etc/httpd/conf.d/
+# cp /var/www/vagrant/environment/default/httpd/httpd.conf /etc/httpd/conf/
+# cp /var/www/vagrant/environment/default/httpd/conf.d/app.conf /etc/httpd/conf.d/
+# cp /var/www/vagrant/environment/default/httpd/conf.d/html.conf /etc/httpd/conf.d/
+# cp /var/www/vagrant/environment/default/httpd/conf.d/phpmyadmin.conf /etc/httpd/conf.d/
 ~~~~
 
 #### 3-4. mysqlのインストール
@@ -263,7 +263,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 ##### my.cnfの修正
 ~~~~
 # mv /etc/my.cnf /etc/my.cnf.dist
-# cp /home/vagrant/default/mysql/my.cnf /etc/
+# cp /var/www/vagrant/environment/default/mysql/my.cnf /etc/
 ~~~~
 
 ##### /var/log/mysqlの作成
@@ -297,7 +297,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 ##### /etc/php.iniの編集
 ~~~~
 # mv /etc/php.ini /etc/php.ini.dist
-# cp /home/vagrant/default/php/php.ini /etc/
+# cp /var/www/vagrant/environment/default/php/php.ini /etc/
 ~~~~
 
 ##### /var/lib/php/sessionのパーミッション変更
@@ -320,7 +320,7 @@ mysql> set password for root@'127.0.0.1' = password('root');
 
 ##### /var/www/phpinfo.phpファイルを生成する
 ~~~~
-# cp /home/vagrant/default/php/phpinfo.php /var/www/app/
+# cp /var/www/vagrant/environment/default/php/phpinfo.php /var/www/app/
 ~~~~
 
 ##### ブラウザで動作確認
@@ -328,7 +328,7 @@ http://127.0.0.1:9090/phpinfo.php
 
 ##### phpからMySQLの接続できるか確認
 ~~~~
-# cp /home/vagrant/default/php/mysql.php /var/www/app/
+# cp /var/www/vagrant/environment/default/php/mysql.php /var/www/app/
 ~~~~
 
 /var/www/mysql.php
@@ -354,7 +354,7 @@ http://127.0.0.1:9090/mysql.php
 ##### /etc/samba/smb.confの編集
 ~~~~
 # mv /etc/samba/smb.conf /etc/samba/smb.conf.dist
-# cp /home/vagrant/default/samba/smb.conf /etc/samba/
+# cp /var/www/vagrant/environment/default/samba/smb.conf /etc/samba/
 ~~~~
 
 ##### smbを再起動する
@@ -440,7 +440,7 @@ enabled
 #### 3-13. テストを実行させるための設定
 ##### phpmd.xmlをセット
 ~~~~
-# cp -R /home/vagrant/default/phpmd /etc/
+# cp -R /var/www/vagrant/environment/default/phpmd /etc/
 ~~~~
 
 ##### pipのインストール
