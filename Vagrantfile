@@ -32,10 +32,10 @@ Vagrant.configure('2') do |config|
     end
 
     node.vm.synced_folder '.', '/var/www/app', disabled: true,
-    :create => true, :owner=> 'vagrant', :group => 'vagrant'
+    :create => true, :owner=> 'vagrant', :group => 'vagrant', mount_options: ['dmode=755', 'fmode=644']
 
     node.vm.synced_folder './tools', '/var/www/vagrant',
-    :create => true, :owner=> 'vagrant', :group => 'vagrant'
+    :create => true, :owner=> 'vagrant', :group => 'vagrant', mount_options: ['dmode=755', 'fmode=644']
   end
 
 #  # Setup default vm
