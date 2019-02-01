@@ -33,6 +33,21 @@ echo %MES% >> "%CURDIR%logs\%LOGFILE%"
 vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-omnibus >> "%CURDIR%logs\%LOGFILE%" 2>&1
 
 
+SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-vbguest
+echo %MES% >> "%CURDIR%logs\%LOGFILE%"
+
+@echo on
+vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-vbguest >> "%CURDIR%logs\%LOGFILE%" 2>&1
+
+
+SET MES=vagrant vbguest
+echo %MES% >> "%CURDIR%logs\%LOGFILE%"
+
+@echo on
+vagrant vbguest >> "%CURDIR%logs\%LOGFILE%" 2>&1
+
+
+
 REM SET MES=vagrant %VAGRANTOPT1% %VAGRANTOPT2% install vagrant-berkshelf
 REM echo %MES% >> "%CURDIR%logs\%LOGFILE%"
 
