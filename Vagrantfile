@@ -14,7 +14,7 @@ Vagrant.configure('2') do |config|
     #node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php5.json'
 
     node.vm.box = 'nc3-centos71-php7'
-    node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php7.json'
+    node.vm.box_url = 'http://nc3packages.nakazii-co.jp/nc3-centos71-php7.json'
 
     node.vm.network :forwarded_port, guest: 22, host: 2224, id: 'ssh'
     node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
