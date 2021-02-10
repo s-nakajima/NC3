@@ -192,7 +192,13 @@ SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
 下記のコマンドを実行し、s-nakajima/MyShellとNetCommonos3の最新化する
 
 ```
-sudo -s /var/www/setup
+[vagrant@app MyShell]$ cd /var/www/MyShell/
+[vagrant@app MyShell]$ git pull
+
+[vagrant@app install]$ cd /var/www/MyShell/install/
+[vagrant@app install]$ bash install.sh
+Use "sudo". Do you want to continue?
+y(es)/n(o) [n]> y
 ```
 
 --
