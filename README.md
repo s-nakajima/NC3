@@ -1,46 +1,11 @@
 NetCommons3開発環境
 =======
 
-このツールは、正規のNetCommons3開発環境の構築とは異なり、2016.02.28現在、当管理者が開発で使用してるVagrant環境を基に新たな開発環境を構築するツールです。
-
-これは、非公式のやり方です。正規の開発環境構築は[こちら](https://github.com/NetCommons3/NetCommons3/blob/master/README.md)を参照してください。
+このツールは、正規のNetCommons3開発環境の構築とは異なり、2021.02.10現在、当管理者が開発で使用してるVagrant環境を基に新たな開発環境を構築するツールです。
 
 ## NetCommonsとは
+
 国立情報学研究所が次世代情報共有基盤システムとして開発しています。サポート情報やライセンスなどの最新の情報は公式サイトを御覧ください。
-こちらのリポジトリは最新版として開発中のv3となります。安定版ではありませんのでご注意ください。現在の安定版については[こちらのレポジトリ](https://github.com/netcommons)をご覧ください。
-
-<br>
-
-
-## 動作実績
-
-以下の組み合わせで動作することを確認しています。
-
-| OS           | Memory | matrix | 備考 |
-| ------------ | ------ | ------ | ----- |
-| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.0 |  |
-| Windows 10   | 16GB   | virtualbox 5.0.12, vagrant 1.8.1 |  |
-| Windows 8.1 | 8GB   | VirtualBox:4.3.34, vagrant 1.7.2 |  |
-| Windows 8.1 | 16GB   | VirtualBox:4.3.32, vagrant 1.6.5 |  |
-| Windows 7 SP1 | 16GB   | virtualbox 4.3.20, vagrant 1.6.5 |  |
-| Windows 7 | 16GB   | virtualbox 4.3.34, vagrant 1.7.4 | Vagrantfileを2GB(2048)に設定変更 |
-| Mac 10.11.1   | 4GB   | virtualbox 5.0.14, vagrant 1.8.1 | Vagrantfileを2GB(2048)に設定変更。ただし、開発には適していない。 |
-
-※Guest Additions Version: 4.2.0で動作確認しています。
-
-OS：UbuntuでGuest Additions Version: 4.3.36は動かない？
-
-### Box（ゲストOS）の構成
-#### 1. NetCommons3-ubuntu（[nc3-ubuntu-php55-mysql55-mroonga.box](http://download.nakazii-co.jp/)）
-
-| ライブラリ | バージョン | 備考
-| ------------ | ------ | ------
-| OS | Ubuntu 12.04 | Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64) 
-| php | 5.5.23 | PHP 5.5.23-1+deb.sury.org~precise+2 (cli) (built: Mar 24 2015 11:00:01) 
-| mysql | 5.5(mroonga) | mysql  Ver 14.14 Distrib 5.5.41, for debian-linux-gnu (x86_64) using readline 6.2
-
-<br>
-
 
 ## インストール
 
@@ -253,67 +218,6 @@ vagrant destroy
 ```
 vagrant provision default
 ```
-
-<br>
-
-## 参考
-* [Vagrantでexportした環境(box)を取り込む方法](http://qiita.com/kon_yu/items/ac7fb2c5af1cc0844225)<br>
-<br>
-* VirtualBoxの仮想ディスクの圧縮
-
-下記の手順で行う<br>
-(1) 下記をコマンドプロンプトから実行する
-```
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\box-disk1.vmdk" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" --format vdi 
-```
-
-(2) 下記をコマンドプロンプトから実行する
-```
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyhd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" compact
-```
-
-(3) 下記をコマンドプロンプトから実行する
-```
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonehd "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vdi" "C:\Users\snakajima\VirtualBox VMs\NC3_default_1456842945656_45946\clone.vmdk" --format vmdk
-```
-
-(4) VirtualBoxを起動し、ストレージを変更する
-
-<a href="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG">
-<img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/virtualbox.PNG" width="400px">
-</a>
-
-<br>
-<br>
-(参考)
-
- * [VirtualBoxの仮想ディスクのサイズを変更する](http://qiita.com/niwashun/items/f71b0b805a6f97b514ec)
- * [VirtualBoxの仮想ディスクの圧縮](http://vboxmania.net/content/%E4%BB%AE%E6%83%B3%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E3%81%AE%E5%9C%A7%E7%B8%AE)<br>
-<br>
-* [Vagrant docs](https://www.vagrantup.com/docs/)<br>
-<br>
-* [VagrantのBoxリスト](https://atlas.hashicorp.com/boxes/search)<br>
-<br>
-* [CentOS7にPHP5.6,MySQL5.7,Nginx1.8の環境構築](http://qiita.com/fujiiiiii/items/a1c880f058b71595d15c#php%E8%A8%AD%E5%AE%9A)<br>
-<br>
-<br>
-* Boxファイルの作成
-~~~~
-# box 作成用のフォルダ(任意)に移動します。
-> cd xxxx(box 作成用のフォルダ)
-
-# box を作成します。
-# --base：作成対象の仮想マシン名、--output：出力 box ファイル名
-> vagrant package --base "C:\Users\snakajima\VirtualBox VMs\NC3CentOS72_default_1483201373740_49744" --output CentOS-6.7-x86_64.box
-==> CentOS-6.7-x86_64: Exporting VM...
-==> CentOS-6.7-x86_64: Compressing package to: C:/appli/vagrant/centos/CentOS-6.7-x86_64.box
-
-# 作成した box ファイルを確認します。
-> dir
-...
-YYYY/MM/DD  hh:mm       689,442,753 CentOS-6.7-x86_64.box
-...
-~~~~
 
 * [VT-xの有効可](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)<br>
 CLIでVT-x is not availableやVERR_VMX_NO_VMX等のエラーでVirtualBox VMが起動しない場合、BOISでVT-xを有効にする必要がある。
