@@ -37,10 +37,10 @@ Vagrant.configure('2') do |config|
     node.vm.synced_folder './tools', '/var/www/vagrant',
     :create => true, :owner=> 'vagrant', :group => 'vagrant'
     node.vm.provision "shell", privileged: false, inline: <<-SHELL
-        GITNAME=""
-        GITPW=""
-        GITMAIL=""
-        COMPOSERTOKEN=""
+        GITNAME=""         #<-- GithubのID
+        GITPW=""           #<-- Githubのパスワード
+        GITMAIL=""         #<-- Githubのメールアドレス
+        COMPOSERTOKEN=""   #<-- Githubのアクセストークン(https://github.com/settings/tokens)
 
         if [ ! "$GITNAME" = "" ] ; then
             git config --global user.name "$GITNAME"
