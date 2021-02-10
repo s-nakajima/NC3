@@ -13,8 +13,8 @@ Vagrant.configure('2') do |config|
     #node.vm.box = 'nc3-centos71-php5'
     #node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php5.json'
 
-    node.vm.box = 'nc3-centos71-php7'
-    node.vm.box_url = 'http://nc3packages.nakazii-co.jp/nc3-centos71-php7.json'
+    node.vm.box = 'nc3-centos71-php72'
+    node.vm.box_url = 'http://nc3packages.nakazii-co.jp/nc3-centos71-php72.json'
 
     node.vm.network :forwarded_port, guest: 22, host: 2224, id: 'ssh'
     node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
@@ -36,43 +36,36 @@ Vagrant.configure('2') do |config|
 
     node.vm.synced_folder './tools', '/var/www/vagrant',
     :create => true, :owner=> 'vagrant', :group => 'vagrant'
-  end
+    node.vm.provision "shell", privileged: false, inline: <<-SHELL
+        GITNAME=""
+        GITPW=""
+        GITMAIL=""
+        COMPOSERTOKEN=""
 
-#  # Setup default vm
-#  config.vm.define 'default', primary: true do |node|
-#    node.vm.box = 'NetCommons3-ubuntu'
-#    node.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
-#
-#    node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
-#    node.vm.network :private_network, ip: '10.0.0.10'
-#    node.vm.hostname = 'app.local'
-#    node.hostmanager.aliases = %w(
-#      html.local
-#    )
-#    node.vm.provider :virtualbox do |vb|
-#      vb.gui = false
-#      vb.memory = 4096
-#    end
-#    node.vm.synced_folder '.', '/var/www/app', disabled: true,
-#    #- mac and ubuntu, etc.
-#    #node.vm.synced_folder '.', '/var/www/app',
-#    :create => true, :owner=> 'www-data', :group => 'www-data'
-#  end
-#
-#  # Setup mysql slave
-#  config.vm.define 'sdb' do |node|
-#    config.vm.box = 'NetCommons3-ubuntu'
-#    config.vm.box_url = 'http://download.nakazii-co.jp/nc3-ubuntu-php55-mysql55-mroonga.box'
-#
-#    node.vm.network :private_network, ip: '10.0.0.11'
-#    node.vm.hostname = 'sdb.local'
-#    node.vm.provider :virtualbox do |vb|
-#      vb.gui = false
-#      vb.cpus = 1
-#      vb.memory = 512
-#    end
-#    node.vm.synced_folder '.', '/vagrant'
-#  end
+        if [ ! "$GITNAME" = "" ] ; then
+            git config --global user.name "$GITNAME"
+            git config --global url."https://".insteadOf git://
+        fi
+        if [ ! "$GITMAIL" = "" ] ; then
+            git config --global user.email "$GITMAIL"
+        fi
+        if [ ! "$COMPOSERTOKEN" = "" ] ; then
+            composer config -g github-oauth.github.com "$COMPOSERTOKEN"
+            composer config --global github-protocols https
+        fi
+        if [ ! -f /home/vagrant/.netrc -a ! "$GITNAME" = "" -a ! "$GITPW" = "" ]; then
+            cat << NETRC > /home/vagrant/.netrc
+#Settings to omit login with git command
+machine github.com
+login $GITNAME
+password $GITPW
+NETRC
+            composer config --global github-protocols https
+            git config --global url."https://".insteadOf git://
+        fi
+SHELL
+
+  end
 
   config.vm.provision :hostmanager
   #config.berkshelf.enabled = true
