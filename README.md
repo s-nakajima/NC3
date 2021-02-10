@@ -54,7 +54,8 @@ git clone https://github.com/researchmap/RmVagrant.git
 #### 2-3. github.comのアカウントを作成してください。
 https://github.com/join?source=header-home
 
---
+---
+
 
 ### 3. インストール
 #### 3-1(1). Windoswの場合
