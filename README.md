@@ -42,7 +42,7 @@ git config --global core.autoCRLF false
 ````
 
 ```
-git clone https://github.com/researchmap/RmVagrant.git
+git clone https://github.com/s-nakajima/NC3.git
 ```
 
 
