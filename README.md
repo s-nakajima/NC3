@@ -54,6 +54,20 @@ git clone https://github.com/s-nakajima/NC3.git
 #### 2-3. github.comのアカウントを作成してください。
 https://github.com/join?source=header-home
 
+
+#### 2-4. Vagrantfileの40行目から43行目を各自githubのアカウント情報に修正してください。
+
+~~~~
+39:    node.vm.provision "shell", privileged: false, inline: <<-SHELL
+40:        GITNAME=""       # <---- GithubのID
+41:        GITPW=""         # <---- Githubのパスワード
+42:        GITMAIL=""       # <---- Githubのメールアドレス
+43:        COMPOSERTOKEN="" # <---- Githubのアクセストークン(https://github.com/settings/tokens)
+44:
+45:        if [ ! "$GITNAME" = "" ] ; then
+~~~~
+
+
 ---
 
 
