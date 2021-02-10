@@ -35,9 +35,16 @@ gitコマンドにパスを通す必要があります。設定方法は、下�
 ### 2. 事前準備
 
 #### 2-1. 当プロジェクトをgit cloneして下さい。
+Windowsの場合、ファイルがCRLFに自動的に変換されてしまうため、下記のコマンドを実行し、CRLFに変換しないように設定してからgit cloneしてください。<br>
+参考）http://qiita.com/yokoh9/items/1ec8099696ade0c1f36e
+````
+git config --global core.autoCRLF false
+````
+
 ```
-git clone https://github.com/s-nakajima/NC3.git
+git clone https://github.com/researchmap/RmVagrant.git
 ```
+
 
 #### 2-2. ゲストOSのメモリの変更（必要に応じて行う）。
 デフォルト4GBに設定しています。必要に応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
@@ -59,6 +66,41 @@ C:\Users\（ユーザ名）\\.VirtualBox<br>
 
 ##### 3-1(1)-1. vagrant_install.batの実行
 vagrant_install.batには、下記3-1(1)-2、3-1(1)-3も含め実行します。
+
+配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
+
+※もしvagrant up時に下記のエラーが発生し、うまくインストールができなかった場合、vagrant haltを実行してVagrantを停止したのち、3-1(4)の手順で環境構築を行う。実行ログは、logsディレクトリに出力されています。
+また、下記のエラー以外に、CLIでVT-x is not availableやVERR_VMX_NO_VMXでエラーが出る場合があります。その場合は、VT-xを有効にしてください。
+有効にする方法は、[VT-xの有効可](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)を参考にしてください。
+
+````
+(省略)
+default: SSH username: vagrant
+default: SSH auth method: private key
+default: Warning: Remote connection disconnect. Retrying...
+default: Warning: Authentication failure. Retrying...
+default: Warning: Authentication failure. Retrying...
+default: Warning: Authentication failure. Retrying...
+(省略)
+default: Warning: Authentication failure. Retrying...
+default: Warning: Authentication failure. Retrying...
+Timed out while waiting for the machine to boot. This means that
+Vagrant was unable to communicate with the guest machine within
+the configured ("config.vm.boot_timeout" value) time period.
+
+If you look above, you should be able to see the error(s) that
+Vagrant had when attempting to connect to the machine. These errors
+are usually good hints as to what may be wrong.
+
+If you're using a custom box, make sure that networking is properly
+working and you're able to connect to the machine. It is a common
+problem that networking isn't setup properly in these boxes.
+Verify that authentication configurations are also setup properly,
+as well.
+
+If the box appears to be booting properly, you may want to increase
+the timeout ("config.vm.boot_timeout") value.
+````
 
 ##### 3-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
 ```
@@ -164,7 +206,7 @@ sudo -s /var/www/setup
 Windowsの場合、Windows のホスト側にてファイルを編集する場合は、下記 samba をマウントし作業してください。
 
 ```
-\\10.0.0.10\shared\app
+\\10.0.0.14\shared\app
 ```
 
 その他の OS は vagrant up したディレクトリ直下のファイルを直接編集するだけで host <=> guest 間でファイルが同期できます。
