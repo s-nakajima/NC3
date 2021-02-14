@@ -47,6 +47,9 @@ git clone https://github.com/s-nakajima/NC3.git
 
 
 #### 2-2. ゲストOSのメモリの変更（必要に応じて行う）。
+
+※Macの場合、Vagrantfile.macをVagrantfileに変更してご利用ください。
+
 デフォルト4GBに設定しています。必要に応じて、変更して下さい。ゲストOSのメモリを変更する場合は、Vagrantfileを修正して下さい。<br>
 <b>【Vagrantfileの変更箇所】</b><br>
 <img src="https://raw.githubusercontent.com/s-nakajima/NC3/master/img/vagrantfile.PNG">
@@ -56,6 +59,8 @@ https://github.com/join?source=header-home
 
 
 #### 2-4. Vagrantfileの40行目から43行目を各自githubのアカウント情報に修正してください。
+
+※Macの場合、Vagrantfile.macをVagrantfileに変更してご利用ください。
 
 ~~~~
 39:    node.vm.provision "shell", privileged: false, inline: <<-SHELL
