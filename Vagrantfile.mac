@@ -29,6 +29,35 @@ Vagrant.configure('2') do |config|
 
     node.vm.synced_folder '.', '/var/www/app',
     :create => true, :owner=> 'vagrant', :group => 'vagrant'
+    node.vm.provision "shell", privileged: false, inline: <<-SHELL
+        GITNAME=""         #<-- GithubのID
+        GITPW=""           #<-- Githubのパスワード
+        GITMAIL=""         #<-- Githubのメールアドレス
+        COMPOSERTOKEN=""   #<-- Githubのアクセストークン(https://github.com/settings/tokens)
+
+        if [ ! "$GITNAME" = "" ] ; then
+            git config --global user.name "$GITNAME"
+            git config --global url."https://".insteadOf git://
+        fi
+        if [ ! "$GITMAIL" = "" ] ; then
+            git config --global user.email "$GITMAIL"
+        fi
+        if [ ! "$COMPOSERTOKEN" = "" ] ; then
+            composer config -g github-oauth.github.com "$COMPOSERTOKEN"
+            composer config --global github-protocols https
+        fi
+        if [ ! -f /home/vagrant/.netrc -a ! "$GITNAME" = "" -a ! "$GITPW" = "" ]; then
+            cat << NETRC > /home/vagrant/.netrc
+#Settings to omit login with git command
+machine github.com
+login $GITNAME
+password $GITPW
+NETRC
+            composer config --global github-protocols https
+            git config --global url."https://".insteadOf git://
+        fi
+SHELL
+
   end
 
 #  # Setup default vm
