@@ -186,7 +186,7 @@ vagrant up default
 
 ### 4. setupシェルの実行
 vagrant が正常に起動された後に、vagrant により作成された仮想環境（ゲスト環境）に SSH で接続し、下記コマンドを実行してください。  
-SSH 接続には、Putty などの SSH クライアントソフトを使用し、127.0.0.1 のポート 2222 に接続してください。  
+SSH 接続には、Putty などの SSH クライアントソフトを使用し、127.0.0.1 のポート 2224 に接続してください。  
 SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
 
 下記のコマンドを実行し、s-nakajima/MyShellとNetCommonos3の最新化する
