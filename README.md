@@ -65,7 +65,7 @@ https://github.com/join?source=header-home
 ~~~~
 39:    node.vm.provision "shell", privileged: false, inline: <<-SHELL
 40:        GITNAME=""       # <---- GithubのID
-41:        GITPW=""         # <---- Githubのパスワード
+41:        GITPW=""         # <-- Githubのアクセストークン(https://github.com/settings/tokens)
 42:        GITMAIL=""       # <---- Githubのメールアドレス
 43:        COMPOSERTOKEN="" # <---- Githubのアクセストークン(https://github.com/settings/tokens)
 44:
