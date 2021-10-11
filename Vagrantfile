@@ -38,7 +38,7 @@ Vagrant.configure('2') do |config|
     :create => true, :owner=> 'vagrant', :group => 'vagrant'
     node.vm.provision "shell", privileged: false, inline: <<-SHELL
         GITNAME=""         #<-- GithubのID
-        GITPW=""           #<-- Githubのパスワード
+        GITPW=""           #<-- Githubのアクセストークン(https://github.com/settings/tokens)
         GITMAIL=""         #<-- Githubのメールアドレス
         COMPOSERTOKEN=""   #<-- Githubのアクセストークン(https://github.com/settings/tokens)
 
