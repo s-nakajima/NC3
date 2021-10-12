@@ -19,7 +19,7 @@ NetCommons3開発環境
 Windows ホストの場合、vagrant は 管理者権限が必要なフォルダ（Program Files 等）にはインストールしないようにしてください。vagrant 起動時にエラーが発生します。
 
 * chef-dk
-  * [https://downloads.getchef.com/chef-dk](https://downloads.getchef.com/chef-dk)
+  * [https://downloads.chef.io/tools/chefdk](https://downloads.chef.io/tools/chefdk)
 
 #### Windwosの場合
 * Git for windows
