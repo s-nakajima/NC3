@@ -14,7 +14,7 @@ IF NOT EXIST %CURDIR%logs (
 
 
 echo ########################## >> "%CURDIR%logs\%LOGFILE%"
-start "%LOGFILE%" C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "Get-Content -Path '%CURDIR%logs\%LOGFILE%' -Wait -Tail 1"
+start "%LOGFILE%" C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "Get-Content -Path '%CURDIR%logs\%LOGFILE%' -Encoding UTF8 -Wait -Tail 1"
 REM start "%LOGFILE%" C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "tail -f '%CURDIR%logs\%LOGFILE%'"
 
 echo -- %date% %time% start. >> "%CURDIR%logs\%LOGFILE%"

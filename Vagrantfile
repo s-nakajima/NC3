@@ -11,13 +11,12 @@ Vagrant.configure('2') do |config|
     #node.vm.box = 'bento/centos-7.1'
 
     #node.vm.box = 'nc3-centos71-php5'
-    #node.vm.box_url = 'http://download.nakazii-co.jp/nc3-centos71-php5.json'
+    #node.vm.box_url = 'https://nc3packages.nakazii-co.jp/nc3-centos71-php5.json'
 
     node.vm.box = 'nc3-centos71-php72'
-    node.vm.box_url = 'http://nc3packages.nakazii-co.jp/nc3-centos71-php72.json'
+    node.vm.box_url = 'https://nc3packages.nakazii-co.jp/nc3-centos71-php72.json'
 
     node.vm.network :forwarded_port, guest: 22, host: 2224, id: 'ssh'
-    node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
     node.vm.network :forwarded_port, guest: 80, host: 9094, auto_correct: true
     node.vm.network :private_network, ip: '10.0.0.14', auto_config:false
     #node.vm.network :private_network, ip: '10.0.0.14'
@@ -69,5 +68,5 @@ SHELL
 
   config.vm.provision :hostmanager
   #config.berkshelf.enabled = true
-  config.omnibus.chef_version = :latest
+  #config.omnibus.chef_version = :latest
 end

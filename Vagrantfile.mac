@@ -18,7 +18,6 @@ Vagrant.configure('2') do |config|
 
     node.vm.network :forwarded_port, guest: 22, host: 2222, id: 'ssh'
     node.vm.network :forwarded_port, guest: 22, host: 2224, id: 'ssh'
-    node.vm.network :forwarded_port, guest: 80, host: 9090, auto_correct: true
     node.vm.network :forwarded_port, guest: 80, host: 9094, auto_correct: true
     node.vm.network :private_network, ip: '10.0.0.14', auto_config:false
     #node.vm.network :private_network, ip: '10.0.0.14'
