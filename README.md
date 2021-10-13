@@ -12,7 +12,7 @@ NetCommons3開発環境
 ### 1. アプリケーションのインストール
 下記アプリケーションをインストールして下さい。
 
-* virtualbox
+* virtualbox (Windowsの場合、6.1.22にしてください。)
   * [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 * vagrant
   * [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)<br>
@@ -84,14 +84,15 @@ C:\Users\（ユーザ名）\\.berkshelf<br>
 C:\Users\（ユーザ名）\\.vagrant.d<br>
 C:\Users\（ユーザ名）\\.VirtualBox<br>
 
-##### 3-1(1)-1. vagrant_install.batの実行
-vagrant_install.batには、下記3-1(1)-2、3-1(1)-3も含め実行します。
+##### 3-1(1)-1. vagrant-install.batの実行
+`vagrant-install.bat`には、下記3-1(1)-2、3-1(1)-3も含め実行します。
 
 配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
 
-※もしvagrant up時に下記のエラーが発生し、うまくインストールができなかった場合、vagrant haltを実行してVagrantを停止したのち、3-1(4)の手順で環境構築を行う。実行ログは、logsディレクトリに出力されています。
-また、下記のエラー以外に、CLIでVT-x is not availableやVERR_VMX_NO_VMXでエラーが出る場合があります。その場合は、VT-xを有効にしてください。
-有効にする方法は、[VT-xの有効可](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)を参考にしてください。
+もしvagrant up時にエラーが発生し、うまくインストールができなかった場合、`vagrant halt`を実行してVagrantを停止したのち、まずは実行ログを確認してください。実行ログは、logsディレクトリに出力されています。実行ログを確認して、下記のエラーであれば、記載している対処方法を試したのち、`vagrant-up.bat` もしくは `vagrant up`を実行してください。
+
+
+- `vagrant up`時に下記のエラーの場合、場合、https://qiita.com/d2cdot-mmori/items/1c340f175ae510e4456a を参考に公開鍵をセットしてください。
 
 ````
 (省略)
@@ -122,10 +123,72 @@ If the box appears to be booting properly, you may want to increase
 the timeout ("config.vm.boot_timeout") value.
 ````
 
+- `vagrant up`時に、CLIでVT-x is not availableやVERR_VMX_NO_VMXでエラーが出る場合があります。その場合は、VT-xを有効にしてください。
+有効にする方法は、[VT-xの有効可](http://d.hatena.ne.jp/yohei-a/20110124/1295887695)を参考にしてください。
+
+- 下記のエラーが発生した場合、VirtualBox Guest Additionsのバージョンの相違していることでエラーが発生しています。
+その場合、`vagran reload`を実行してください。
+````
+Vagrant was unable to mount VirtualBox shared folders. This is usually
+because the filesystem "vboxsf" is not available. This filesystem is
+made available via the VirtualBox Guest Additions and kernel module.
+Please verify that these guest additions are properly installed in the
+guest. This is not a bug in Vagrant and is usually caused by a faulty
+Vagrant box. For context, the command attempted was:
+
+mount -t vboxsf -o uid=1000,gid=1000,_netdev vagrant /vagrant
+
+The error output from the command was:
+
+: Invalid argument
+````
+
+- 下記のエラーが発生した場合、セキュリティソフトが妨げになっています。セキュリティソフトを一時停止してください。一度環境構築が成功した後は、セキュリティソフトを停止する必要はありません。
+
+
+````
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'nc3-centos71-php72' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+There was an error while downloading the metadata for this box.
+The error message is shown below:
+
+schannel: next InitializeSecurityContext failed: Unknown error (0x80092012) - 失効の関数は証明書の失効を確認できませんでした。
+````
+````
+(省略)
+An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+
+schannel: next InitializeSecurityContext failed: Unknown error (0x80092012) - 失効の関数は証明書の失効を確認できませんでした。
+````
+
+
+- 下記のエラーが発生した場合、原因が特定できていません。VirtualBoxのバージョンをダウングレードした後、試してください。
+
+````
+(省略)
+    default: 8983 (guest) => 8983 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: ["startvm", "ca8dffb7-a74f-42af-9242-1f883d0c7c5c", "--type", "headless"]
+
+Stderr: VBoxManage.exe: error: The VM session was closed before any attempt to power it on
+
+VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component SessionMachine, interface ISession
+````
+
+
 ##### 3-1(1)-2. vagrant plugin (vagrant_install.batに含まれているため、実行する必要なし)
 ```
-vagrant plugin install vagrant-hostmanager --plugin-version 1.5.0
-vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-omnibus
+vagrant plugin install vagrant-vbguest
 ```
 
 ##### 3-1(1)-3. vagrant を起動 (vagrant_install.batに含まれているため、実行する必要なし)
@@ -135,11 +198,12 @@ vagrant plugin install vagrant-omnibus --plugin-version 1.4.1
 vagrant up default
 ```
 
----
+
+----
 
 #### 3-1(2). Mac
-##### 3-1(2)-1. vagrant_install.commandの実行
-vagrant_install.commandには、下記3-1(2)-2、3-1(2)-3も含めインストールします。
+##### 3-1(2)-1. vagrant-install.commandの実行
+vagrant-install.commandには、下記3-1(2)-2、3-1(2)-3も含めインストールします。
 
 ##### 3-1(2)-2. synced_folder 有効化 (vagrant_install.commandに含まれているため、実行する必要なし)
 
@@ -147,6 +211,7 @@ vagrant_install.commandには、下記3-1(2)-2、3-1(2)-3も含めインスト�
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
+vagrant plugin install vagrant-vbguest
 ```
 
 ##### 3-1(2)-4. vagrant を起動 (vagrant_install.commandに含まれているため、実行する必要なし)
@@ -155,7 +220,7 @@ vagrant plugin install vagrant-omnibus
 vagrant up default
 ```
 
----
+----
 
 #### 3-1(3). それ以外（Ubuntuなど）
 ##### 3-1(3)-1. synced_folder 有効化
@@ -166,18 +231,19 @@ synced_folder を有効にしたままで vagrant up すると symlink が破壊
 
 ```
 node.vm.synced_folder '.', '/var/www/app', disabled: true,
-:create => true, :owner=> 'www-data', :group => 'www-data'
+:create => true, :owner=> 'vagrant', :group => 'vagrant'
 ```
 ↓
 ```
 node.vm.synced_folder '.', '/var/www/app',
-:create => true, :owner=> 'www-data', :group => 'www-data'
+:create => true, :owner=> 'vagrant', :group => 'vagrant'
 ```
 
 ##### 3-1(3)-2. vagrant plugin
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-omnibus
+vagrant plugin install vagrant-vbguest
 ```
 
 ##### 3-1(3)-3. vagrant を起動
@@ -187,7 +253,7 @@ vagrant plugin install vagrant-omnibus
 vagrant up default
 ```
 
---
+----
 
 ### 4. setupシェルの実行
 vagrant が正常に起動された後に、vagrant により作成された仮想環境（ゲスト環境）に SSH で接続し、下記コマンドを実行してください。  
@@ -206,7 +272,7 @@ Use "sudo". Do you want to continue?
 y(es)/n(o) [n]> y
 ```
 
---
+----
 
 ### 5. 動作確認
 
@@ -226,7 +292,7 @@ y(es)/n(o) [n]> y
 | 参観者（ビジター） | visitor      | admin      |
 
 
---
+----
 
 ### 6. 開発
 Windowsの場合、Windows のホスト側にてファイルを編集する場合は、下記 samba をマウントし作業してください。
@@ -237,7 +303,7 @@ Windowsの場合、Windows のホスト側にてファイルを編集する場�
 
 その他の OS は vagrant up したディレクトリ直下のファイルを直接編集するだけで host <=> guest 間でファイルが同期できます。
 
---
+----
 
 ### 7. 終了
 vagrantコマンドで仮想マシンを終了します。
@@ -247,7 +313,7 @@ Windowsの場合は、vagrant-halt.batで終了することができます。
 vagrant halt
 ```
 
---
+----
 
 ### 8. 再開
 vagrantコマンドで仮想マシンを再開します。
