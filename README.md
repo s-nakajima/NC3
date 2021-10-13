@@ -78,14 +78,14 @@ https://github.com/join?source=header-home
 
 ### 3. インストール
 #### 3-1(1). Windoswの場合
-再インストールする場合、下記の4つのディレクトリを削除もしくはリネームしてください。<br>
+再構築する場合、下記の4つのディレクトリを削除もしくはリネームしてください。<br>
 C:\Users\（ユーザ名）\\.gem<br>
 C:\Users\（ユーザ名）\\.berkshelf<br>
 C:\Users\（ユーザ名）\\.vagrant.d<br>
 C:\Users\（ユーザ名）\\.VirtualBox<br>
 
 ##### 3-1(1)-1. vagrant-install.batの実行
-`vagrant-install.bat`には、下記3-1(1)-2、3-1(1)-3も含め実行します。
+`vagrant-install.bat`は、下記3-1(1)-2、3-1(1)-3も含め実行します。
 
 配置したソースのパスで vagrant を起動します。初回のみ Box(isoファイルのようなもの) のダウンロードに時間がかかります。
 
