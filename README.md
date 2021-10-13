@@ -271,6 +271,7 @@ SSH 認証のユーザ名とパスフレーズはともに「vagrant」です。
 Use "sudo". Do you want to continue?
 y(es)/n(o) [n]> y
 ```
+※参考）[s-nakajima/MyShell/install](https://github.com/s-nakajima/MyShell/tree/master/install)
 
 ----
 
